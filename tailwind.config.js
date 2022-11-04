@@ -27,5 +27,5 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-shades-for-custom-colors")],
 }
