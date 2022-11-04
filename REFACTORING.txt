@@ -1,0 +1,4 @@
+TODO REFACTORING:
+
+- Encapsulate the behaviour in the getDateSensitiveData() function in pages/api/getDeveloperData.ts and restructure how getEventsData() calls it, so in the future it's possible to
+call it with however many time spans we want without having to create a bunch of new variables, parameters and checks for each time span.
