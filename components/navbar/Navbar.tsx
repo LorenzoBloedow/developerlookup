@@ -71,8 +71,8 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
             ref={node => {
                 tl.to(node, {
                     letterSpacing: "50px",
-                    duration: 0.4,
-                    ease: "expo.out"
+                    duration: 0.3,
+                    ease: "power4.out"
                 })
             }}
             >
