@@ -36,7 +36,7 @@ export type PaginationEvent = {
 
 export type EventSummary = {
     type: string | null;
-    createdAt: string;
+    date: string;
 }
 
 export type TimeInterval = {
@@ -51,14 +51,28 @@ export type RepoDateAndUrl = {
 
 export type CommitAmount = { amount: number, date?: Date }
 
-export type DateSensitiveData = {
-    pullRequestAmount: number;
+export type DateSensitiveData = { pullRequestAmount: number;
     commitAmount: number;
+    temp: {
+        lastEventDate: Date | null;
+
+        currentCommitStreak: TimeSpan;
+        commitStreaks: TimeSpan[];
+
+        currentBreakStreak: TimeSpan;
+        breakStreaks: TimeSpan[];
+
+        currentCommitAmount: CommitAmount;
+        commitAmountByDay: CommitAmount[];
+
+        currentActivity: EventSummary[];
+        activityByDay: EventSummary[][];
+    }
+    programmingLanguageScore: LooseObject;
+    longestCommitStreak: TimeSpan;
+    longestBreakStreak: TimeSpan;
     mostCommitsDay: CommitAmount;
     mostActiveDay: EventSummary[];
-    topLanguages: {[key: string]: number};
-    longestBreak: TimeInterval;
-    longestCommitStreak: TimeInterval;
     mostPopularRepoWorkedOn: PopularRepo;
 }
 
