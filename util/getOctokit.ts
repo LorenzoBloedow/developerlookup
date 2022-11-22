@@ -9,8 +9,10 @@ const octokit = new MyOctokit({
         clientId: process.env.GITHUB_CLIENT_ID,
         clientSecret: process.env.GITHUB_CLIENT_SECRET
     },
-    request: { retries: 10 },
-    doNotRetry: []
+    request: { retries: 5 },
+    doNotRetry: [
+        403
+    ]
 });
 const api = octokit.rest;
 

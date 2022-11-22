@@ -3,7 +3,8 @@ const nextConfig = {
   reactStrictMode: false,
   swcMinify: true,
   experimental: {
-    appDir: true
+    appDir: true,
+    allowMiddlewareResponseBody: true
   },
   images: {
     remotePatterns: [

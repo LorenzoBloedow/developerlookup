@@ -1,6 +1,7 @@
-import fetchBasicUserData from "../../util/getBasicUserData";
+import getBasicUserData from "../../util/getBasicUserData";
 import getCountryFlag from "../../util/getCountryFlag";
-import { BsGithub } from "react-icons/bs"
+import { FunctionComponent } from "react";
+import GitHubSquare from "./GitHubSquare";
 
 interface CountryFlagProps {
     username: string
@@ -8,28 +9,24 @@ interface CountryFlagProps {
 
 async function CountryFlag({ username }: CountryFlagProps) {
 
-    const { location } = await fetchBasicUserData(username);
+    const { location } = await getBasicUserData(username);
 
-    const Flag = await getCountryFlag(location);
+    const Flag: FunctionComponent<{className: string}> | false = await getCountryFlag(location);
 
     return (
-        <div>
+        <>
             {
                 Flag ?
                 <div
                 aria-label="The user's country flag."
-                className="ml-auto w-[17%] border-4 border-white shadow-black shadow-md"
+                className="ml-auto w-[20%] border-4 border-white shadow-black shadow-md "
                 >
-                    <Flag />
+                    <Flag className="w-full h-full" />
                 </div>
                 :
-                <BsGithub
-                size={100}
-                aria-label="The GitHub logo."
-                className="absolute top-7 right-7"
-                />
+                <GitHubSquare username={username} />
             }
-        </div>
+        </>
     );
 }
 

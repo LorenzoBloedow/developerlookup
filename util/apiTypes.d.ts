@@ -1,4 +1,4 @@
-export type PopularRepo = RepositorySummary & { stars: number }
+export type PopularRepo = RepositorySummary & { stars: number, forks: number, watchers: number }
 
 export type RepositorySummary = {
     url: string;
@@ -73,15 +73,15 @@ export type DateSensitiveData = { pullRequestAmount: number;
     longestBreakStreak: TimeSpan;
     mostCommitsDay: CommitAmount;
     mostActiveDay: EventSummary[];
-    mostPopularRepoWorkedOn: PopularRepo;
+    mostPopularRepoWorkedOn: Partial<PopularRepo>;
 }
 
 export type EventsData = {
-    topMostRecentRepos: RepositorySummary[];
+    mostRecentRepos: RepositorySummary[] & { action: string }
     mostPopularRepo: PopularRepo & { userType: "member" | "owner" };
     lastActive: Date;
-    lastCommit: RepoDateAndUrl | null | undefined;
-    lastPullRequest: RepoDateAndUrl | null | undefined;
+    lastCommit: RepoDateAndUrl & { name: string } | null | undefined;
+    lastPullRequest: RepoDateAndUrl & { name: string } | null | undefined;
     ninetyDays: DateSensitiveData;
     thirtyDays: DateSensitiveData;
 }
@@ -94,7 +94,7 @@ export type UserData = {
     location: string | null,
     followers: number,
     joinDate: Date,
-    gistsAmount: number,
+    gistAmount: number,
     twitter: string | null | undefined,
     hireable: boolean | null
     achievements: {

@@ -24,6 +24,7 @@ const Button: FunctionComponent<ButtonProps> = ({ href, text }) => {
 
     return (
         <Link
+        tabIndex={-1}
         href={href}
         className="text-white p-4 px-10 rounded-2xl text-5xl flex items-center justify-center border-white border-4 whitespace-nowrap"
         onPointerOver={() => hoverHandler()}

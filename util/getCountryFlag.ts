@@ -13,7 +13,6 @@ export default async function getCountryFlag(location: string) {
             input: location,
             inputtype: PlaceInputType.textQuery,
             language: Language.en,
-            // fields: ["adr_address"]
         }
     })
 
@@ -35,14 +34,13 @@ export default async function getCountryFlag(location: string) {
         return false;
     }
 
+    let countryFlag;
     for (const address of locationData) {
         if (address.types.includes(AddressType.country)) {
             // @ts-ignore
-            const countryFlag = Flag?.[address.short_name]
-            if (!countryFlag) {
-                return false;
-            }
+            countryFlag = Flag?.[address.short_name];
             return countryFlag;
         }
     }
+    return false;
 }
