@@ -44,7 +44,7 @@ function CharacterCounter({ characterCount }: CharacterCounterProps) {
 
     return (
         <ol
-        className="flex flex-wrap gap-1"
+        className="flex flex-wrap justify-center gap-1"
         >
             {characterArray}
         </ol>
