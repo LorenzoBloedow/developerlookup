@@ -1,18 +1,46 @@
-import { FunctionComponent } from "react";
-import Header from "./Header";
+import Link from "next/link";
+import { FaLinkedin, FaTwitterSquare, FaGithubSquare } from "react-icons/fa";
 
-interface FooterProps {
-    
-}
- 
-const Footer: FunctionComponent<FooterProps> = () => {
+const Footer = () => {
     return (
-        <footer className="h-60 bg-accent-one w-full border-t-2 border-t-black p-8">
-            <div className="flex w-full justify-around">
-                <Header text="CONTACT" />
+        <footer
+        className="w-full rounded-xl flex gap-10 justify-center p-6"
+        style={{
+            boxShadow: "9px 9px 13px var(--neu-dark), -9px -9px 30px var(--neu-light)"
+        }}
+        >
+            <Link
+            href="https://www.linkedin.com/in/lorenzobloedow"
+            >
+                <FaLinkedin
+                className="w-12 h-12 bg-neu-mid p-2 rounded-md fill-slate-700 neu-button"
+                style={{
+                    boxShadow: "9px 9px 13px var(--neu-dark), -9px -9px 30px var(--neu-light)"
+                }}
+                />
+            </Link>
+            
+            <Link
+            href="https://twitter.com/intent/follow?screen_name=LorenzoBloedow"
+            >
+                <FaTwitterSquare
+                className="w-12 h-12 bg-neu-mid p-2 rounded-md fill-slate-700 neu-button"
+                style={{
+                    boxShadow: "9px 9px 13px var(--neu-dark), -9px -9px 30px var(--neu-light)"
+                }}
+                />
+            </Link>
 
-                <Header text="MORE COOL STUFF" />
-            </div>
+            <Link
+            href="https://github.com/LorenzoBloedow"
+            >
+                <FaGithubSquare
+                className="w-12 h-12 bg-neu-mid p-2 rounded-md fill-slate-700 neu-button"
+                style={{
+                    boxShadow: "9px 9px 13px var(--neu-dark), -9px -9px 30px var(--neu-light)"
+                }}
+                />
+            </Link>
         </footer>
     );
 }

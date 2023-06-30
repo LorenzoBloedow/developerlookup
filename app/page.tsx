@@ -1,20 +1,13 @@
-import { FunctionComponent } from "react";
-import ProfileSearchInput from "../components/ProfileSearchInput";
-
-interface PageProps {
-    
-}
+import ProfileSearchInput from "../components/ProfileSearchInput/ProfileSearchInput";
  
-const Page: FunctionComponent<PageProps> = () => {
+const Page = () => {
     return (
         <div>
-            
             <div
             className="flex items-center justify-center h-[100vh]"
             >
                 <ProfileSearchInput />
             </div>
-
         </div>
     );
 }

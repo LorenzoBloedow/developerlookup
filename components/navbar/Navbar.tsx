@@ -1,102 +1,50 @@
-"use client"
-import { FunctionComponent, useRef } from "react";
-import { Archivo_Black } from "@next/font/google";
+import { Archivo_Black } from "next/font/google";
 import Button from "./Button";
-import gsap from "gsap";
-import { usePathname, useRouter } from "next/navigation";
-import useIsDesktop from "../../hooks/useIsDesktop";
-
-interface NavbarProps {
-    
-}
+import { TbBrandTwitterFilled } from "react-icons/tb";
+import Link from "next/link";
 
 const archivoBlack = Archivo_Black({
     subsets: ["latin"],
     weight: "400"
 }) 
 
-const Navbar: FunctionComponent<NavbarProps> = () => {
-
-    const isDesktop = useIsDesktop();
-    const router = useRouter();
-    const pathName = usePathname();
-
-    const tl = gsap.timeline({ paused: true });
-
-
-    const developerRef = useRef<HTMLSpanElement>(null);
-    const lookupRef = useRef<HTMLSpanElement>(null);
-
-    function hoverHandler() {
-        // Log analytics event.
-        if (isDesktop) {
-            tl.play();
-        }
-    }
-
-    function hoverOutHandler() {
-        // Log analytics event.
-        if (isDesktop) {
-            tl.reverse();
-        }
-    }
-
-    function logoHandler() {
-        // Log analytics event.
-        if (pathName === "/") {
-            window.location.reload();
-        } else {
-            router.replace("/");
-        }
-    }
+const Navbar = () => {
  
     return (
         <nav
-        className="bg-accent-one shadow-black shadow-lg h-[20%] md:h-32 p-4 px-8 flex items-center justify-end gap-10"
+        className="bg-neu-mid h-16 md:h-20 lg:h-28 flex
+        items-center gap-4 p-4 md:p-6 lg:px-12 rounded-2xl"
+        style={{
+            boxShadow: "9px 9px 13px var(--neu-dark), -9px -9px 30px var(--neu-light)"
+        }}
         >
-            <h1
-            aria-label="DeveloperLookup.com's logo."
-            style={archivoBlack.style}
-            className="text-3xl lg:text-4xl tracking-widest mr-auto text-white"
-
-            ref={node => {
-                tl.to(node, {
-                    letterSpacing: "50px",
-                    duration: 0.3,
-                    ease: "power4.out"
-                })
+            <Link
+            href="/"
+            style={{
+                textShadow: "9px 9px 6px var(--neu-dark), -9px -9px 6px var(--neu-light)"
             }}
+            className="text-sm md:text-lg lg:text-xl tracking-widest mr-auto
+            text-slate-700 text-start font-extrabold"
             >
-                <span
-                ref={developerRef}
-                className="cursor-pointer"
-                onPointerEnter={() => hoverHandler()}
-                onPointerOut={() => hoverOutHandler()}
-                onPointerUp={logoHandler}
-                >
-                    Developer
-                </span>
+                Developer
                 <br />
-                <span
-                ref={lookupRef}
-                onPointerEnter={() => hoverHandler()}
-                onPointerOut={() => hoverOutHandler()}
-                onPointerUp={logoHandler}
-                className="text-black underline underline-offset-4 cursor-pointer"
-                >
-                    Lookup
-                </span>
-            </h1>
+                Lookup
+            </Link>
             
             <Button
-            text="🔗 Share"
-            href="/share"
+            icon={
+                <TbBrandTwitterFilled
+                className="w-4 h-4 md:w-7 md:h-7"
+                />
+            }
+            text="Follow Me"
+            href="https://twitter.com/intent/follow?screen_name=LorenzoBloedow"
             />
 
-            <Button
+            {/* <Button
             text="⭐ Premium"
             href="/donate"
-            />
+            /> */}
         </nav>
     );
 }

@@ -3,18 +3,28 @@
 @tailwind utilities;
 
 ::selection {
-  color: none;
-  background: none;
+    color: none;
+    background: none;
 }
 /* For Mozilla Firefox */
 ::-moz-selection {
-  color: none;
-  background: none;
+    color: none;
+    background: none;
 }
 
 html {
-  box-sizing: border-box;
+    box-sizing: border-box;
+    --neu-light: hsl(0, 0%, 100%);
+    --neu-mid: hsl(215, 24%, 90%);
+    --neu-dark: hsl(216, 23%, 71%);
+    --neu-accent-light: hsl(271, 25%, 95%);
+    --neu-accent-mid: hsl(271, 25%, 90%);
+    --neu-accent-dark: hsl(271, 25%, 71%);
 }
 *, *:before, *:after {
-  box-sizing: inherit;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+}
+.neu-button:active {
+    box-shadow: inset 3px 3px 5px var(--neu-dark) !important;
 }
