@@ -12,24 +12,23 @@
   },
   "dependencies": {
     "@googlemaps/google-maps-services-js": "^3.3.16",
-    "@next/font": "^13.0.4",
-    "@octokit/auth-oauth-app": "^5.0.4",
-    "@octokit/plugin-retry": "^4.0.3",
-    "@octokit/rest": "^19.0.5",
-    "@octokit/types": "^8.0.0",
+    "@octokit/auth-oauth-app": "^5.0.6",
+    "@octokit/plugin-retry": "^4.1.6",
+    "@octokit/rest": "^19.0.13",
     "@vercel/analytics": "^0.1.3",
     "client-only": "^0.0.1",
     "country-flag-icons": "^1.5.5",
     "detect-programming-language": "^1.0.1",
-    "gsap": "^3.11.3",
+    "github-username-regex": "^1.0.0",
+    "gsap": "^3.12.2",
     "is-consecutive-day": "^1.0.0",
     "language-detect": "^1.1.0",
-    "next": "^13.0.4",
+    "next": "^13.4.7",
     "programming-colors": "^1.0.3",
     "react": "18.2.0",
     "react-content-loader": "^6.2.0",
     "react-dom": "18.2.0",
-    "react-icons": "^4.6.0",
+    "react-icons": "^4.10.1",
     "recharts": "^2.1.16",
     "server-only": "^0.0.1",
     "sharp": "^0.31.2",
@@ -37,6 +36,8 @@
     "tailwind-shades-for-custom-colors": "^1.0.1"
   },
   "devDependencies": {
+    "@octokit/types": "^10.0.0",
+    "@types/github-username-regex": "^1.0.0",
     "@types/node": "18.11.7",
     "@types/react": "18.0.24",
     "@types/react-dom": "18.0.8",
@@ -44,7 +45,7 @@
     "eslint": "8.26.0",
     "eslint-config-next": "13.0.0",
     "postcss": "^8.4.18",
-    "tailwindcss": "^3.2.1",
-    "typescript": "4.8.4"
+    "tailwindcss": "^3.3.2",
+    "typescript": "^5.1.6"
   }
 }
