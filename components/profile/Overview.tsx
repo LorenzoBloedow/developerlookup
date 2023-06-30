@@ -11,9 +11,11 @@ interface OverviewProps {
 const Overview: FunctionComponent<OverviewProps> = ({ username }) => {
     return (
         <div
-        className="flex flex-wrap justify-center gap-5"
+        className="flex flex-wrap justify-center"
         >
-            <h1 className="text-6xl font-bold">Basic information</h1>
+            <h1 className="text-2xl font-bold">
+                Overview
+            </h1>
             <div className="flex gap-4">
                 
                 <Suspense>
