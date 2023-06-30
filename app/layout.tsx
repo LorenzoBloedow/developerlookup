@@ -24,7 +24,7 @@ const RootLayout: FunctionComponent<RootLayoutProps> = ({ children }) => {
 
     return (
         <html lang="en" className={prompt.className}>
-            <body className="bg-[--neu-mid] flex flex-col min-h-screen p-4">
+            <body className="bg-[--neu-mid] flex flex-col items-center min-h-screen gap-16 justify-between p-4">
                 <Navbar />
                     {children}
                 <Footer />
