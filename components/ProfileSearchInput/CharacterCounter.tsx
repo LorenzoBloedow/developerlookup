@@ -3,12 +3,12 @@ interface RectangleProps {
     color: string;
 }
 
-function Rectangle({ index, color }: RectangleProps) {
+function Character({ index, color }: RectangleProps) {
     return (
         <li
         id={`character-rect-${index}`}
         key={"character-rect-key-" + index}
-        className="w-1 h-1 xl:w-1.5 xl:h-1.5"
+        className="w-1 h-1 xl:w-1.5 xl:h-1.5 rounded-full"
         style={{
             backgroundColor: color
         }}
@@ -23,7 +23,7 @@ interface CharacterCounterProps {
 }
 
 function CharacterCounter({ characterCount }: CharacterCounterProps) {
-    const rectangleArray = [];
+    const characterArray = [];
 
     for (let i = 1; i <= 39; i++) {
         let color = "#838d9c";
@@ -34,8 +34,8 @@ function CharacterCounter({ characterCount }: CharacterCounterProps) {
             color = "#ff7a7a";
         }
 
-        rectangleArray.push(
-            <Rectangle
+        characterArray.push(
+            <Character
             color={color}
             index={i}
             />
@@ -46,7 +46,7 @@ function CharacterCounter({ characterCount }: CharacterCounterProps) {
         <ol
         className="flex flex-wrap gap-1"
         >
-            {rectangleArray}
+            {characterArray}
         </ol>
     );
 }
