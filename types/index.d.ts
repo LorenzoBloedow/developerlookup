@@ -51,24 +51,14 @@ export type RepoDateAndUrl = {
 
 export type CommitAmount = { amount: number, date?: Date }
 
-export type DateSensitiveData = { pullRequestAmount: number;
+type DateSensitiveDataTimespanData = {
+    pullRequestAmount: number;
     commitAmount: number;
-    temp: {
-        lastEventDate: Date | null;
-
-        currentCommitStreak: TimeSpan;
-        commitStreaks: TimeSpan[];
-
-        currentBreakStreak: TimeSpan;
-        breakStreaks: TimeSpan[];
-
-        currentCommitAmount: CommitAmount;
-        commitAmountByDay: CommitAmount[];
-
-        currentActivity: EventSummary[];
-        activityByDay: EventSummary[][];
-    }
-    programmingLanguageScore: LooseObject;
+    programmingLanguageScore: {
+        name: string;
+        color: string;
+        score: number;
+    }[];
     longestCommitStreak: TimeSpan;
     longestBreakStreak: TimeSpan;
     mostCommitsDay: CommitAmount;
@@ -76,17 +66,38 @@ export type DateSensitiveData = { pullRequestAmount: number;
     mostPopularRepoWorkedOn: Partial<PopularRepo>;
 }
 
+export type DateSensitiveData = {
+    thirtyDays: DateSensitiveDataTimespanData;
+    ninetyDays: DateSensitiveDataTimespanData;
+}
+
+export type MostPopularRepo = PopularRepo & { userType: "member" | "owner" };
+
 export type EventsData = {
-    mostRecentRepos: RepositorySummary[] & { action: string }
-    mostPopularRepo: PopularRepo & { userType: "member" | "owner" };
-    lastActive: Date;
-    lastCommit: RepoDateAndUrl & { name: string } | null | undefined;
-    lastPullRequest: RepoDateAndUrl & { name: string } | null | undefined;
+
+    mostPopularRepo: MostPopularRepo;
+
     ninetyDays: DateSensitiveData;
     thirtyDays: DateSensitiveData;
 }
 
-export type UserData = {
+type RecentRepo = {
+    date: Date;
+    url: string;
+    name: string;
+}
+
+export type MostRecentData = {
+    lastActive: {
+        action: string;
+        date: Date;
+    }
+    lastCommit?: RecentRepo;
+    lastPullRequest?: RecentRepo;
+    mostRecentRepos: (RepositorySummary  & { action: string })[];
+}
+
+export type BasicUserData = {
     name: string | null,
     profilePic: string,
     bio: string | null,
@@ -103,8 +114,27 @@ export type UserData = {
         veteran: boolean
     },
     profileLastUpdated: string
-} & EventsData
+}
+
+export type UserData = BasicUserData & EventsData;
 
 export type TimeSpan = { startDate: number, endDate: number };
 
 export type LooseObject = { [key: string]: any };
+
+export type ApiErrorCode = "rateLimited" | "invalidUsername" | "failedAuthentication" | "unknown";
+
+export type ApiRequest<Data> = {
+    success: true,
+    data: Data
+} | ApiError;
+
+export type ApiError = {
+    success: false,
+    data: {
+        message: string,
+        code: ApiErrorCode
+    }
+}
+
+export type ApiErrorData = ApiError["data"];
