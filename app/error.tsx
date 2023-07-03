@@ -87,7 +87,7 @@ function GenericError({ message, goBack }: { message?: string, goBack: () => voi
                     😬
                 </span>
 
-                <h1 className="text-white text-2xl sm:text-3xl sm:w-52 lg:text-5xl">
+                <h1 className="text-white text-2xl sm:text-3xl sm:w-52 lg:text-5xl lg:w-80">
                     { message || "Something went wrong!" }
                 </h1>
             </div>
