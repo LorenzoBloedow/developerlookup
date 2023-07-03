@@ -1,7 +1,8 @@
 "use client";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { BsGithub } from "react-icons/bs";
-import { ApiError, ApiRequest } from "../types";
+import { ApiError } from "../types";
+import getAuthUrl from "../util/getAuthUrl";
 
 function IllegalCharactersUsernameError({ goBack }: { goBack: () => void }) {
     return (
@@ -31,7 +32,8 @@ function IllegalCharactersUsernameError({ goBack }: { goBack: () => void }) {
 }
 
 function RateLimitingError({ goBack }: { goBack: () => void }) {
-    const authString = "https://github.com/login/oauth/authorize?client_id=" + process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID;
+    const path = usePathname();
+    const authString = getAuthUrl(path);
 
     return (
         <div className="fixed top-0 text-center w-[100vw] h-[100vh] bg-red-500 flex items-center justify-center">
@@ -104,7 +106,6 @@ function GenericError({ message, goBack }: { message?: string, goBack: () => voi
 }
 
 const Error = ({ error }: { error: ApiError & { digest?: string }, reset: () => void }) => {
-    console.log(error)
     const router = useRouter();
     function handleClick() {
         router.back();
@@ -112,11 +113,11 @@ const Error = ({ error }: { error: ApiError & { digest?: string }, reset: () => 
 
     // For errors that were thrown in a server component instead of being caught and thrown in a client component
     const isServerNotHandled = !!error?.digest;
-
+    
     if (isServerNotHandled) {
         return <GenericError goBack={handleClick} />
     }
-
+    
     switch (error?.data?.code) {
         case "invalidUsername":
             return <IllegalCharactersUsernameError goBack={handleClick} />
