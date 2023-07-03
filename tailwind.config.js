@@ -27,9 +27,22 @@ module.exports = {
                 "neu-light": "var(--neu-light)",
                 "neu-mid": "var(--neu-mid)",
                 "neu-dark": "var(--neu-dark)",
+
                 "neu-accent-light": "var(--neu-accent-light)",
                 "neu-accent-mid": "var(--neu-accent-mid)",
-                "neu-accent-dark": "var(--neu-accent-dark)"
+                "neu-accent-dark": "var(--neu-accent-dark)",
+
+                "neu-accent-green-light": "var(--neu-accent-green-light)",
+                "neu-accent-green-mid": "var(--neu-accent-green-mid)",
+                "neu-accent-green-dark": "var(--neu-accent-green-dark)",
+
+                "neu-accent-orange-light": "var(--neu-accent-orange-light)",
+                "neu-accent-orange-mid": "var(--neu-accent-orange-mid)",
+                "neu-accent-orange-dark": "var(--neu-accent-orange-dark)",
+
+                "neu-accent-red-light": "var(--neu-accent-red-light)",
+                "neu-accent-red-mid": "var(--neu-accent-red-mid)",
+                "neu-accent-red-dark": "var(--neu-accent-red-dark)"
             }
         },
     },

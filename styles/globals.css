@@ -20,6 +20,15 @@ html {
     --neu-accent-light: hsl(271, 25%, 95%);
     --neu-accent-mid: hsl(271, 25%, 90%);
     --neu-accent-dark: hsl(271, 25%, 71%);
+    --neu-accent-green-light: hsl(120, 23%, 95%);
+    --neu-accent-green-mid: hsl(120, 23%, 90%);
+    --neu-accent-green-dark: hsl(120, 23%, 71%);
+    --neu-accent-orange-light: hsl(30, 23%, 95%);
+    --neu-accent-orange-mid: hsl(30, 23%, 90%);
+    --neu-accent-orange-dark: hsl(30, 23%, 71%);
+    --neu-accent-red-light: hsl(0, 23%, 95%);
+    --neu-accent-red-mid: hsl(0, 23%, 90%);
+    --neu-accent-red-dark: hsl(0, 23%, 71%);
 }
 *, *:before, *:after {
     box-sizing: inherit;
