@@ -1,3 +1,6 @@
+import { RestEndpointMethodTypes } from "@octokit/rest";
+import { RequestParameters } from "@octokit/types";
+
 export type PopularRepo = RepositorySummary & { stars: number, forks: number, watchers: number }
 
 export type RepositorySummary = {
@@ -124,11 +127,6 @@ export type LooseObject = { [key: string]: any };
 
 export type ApiErrorCode = "rateLimited" | "invalidUsername" | "failedAuthentication" | "unknown";
 
-export type ApiRequest<Data> = {
-    success: true,
-    data: Data
-} | ApiError;
-
 export type ApiError = {
     success: false,
     data: {
@@ -137,4 +135,14 @@ export type ApiError = {
     }
 }
 
+export type ApiRequest<Data> = Data extends undefined ? ({
+    success: true,
+} | ApiError) : ({
+    success: true,
+    data: Data
+} | ApiError);
+
+
 export type ApiErrorData = ApiError["data"];
+
+export type GenericOctokitFunction = (params: RequestParameters & LooseObject) => Promise<void>;
