@@ -1,8 +1,15 @@
-export default async function getBasicUserData(username: string) {
-    const data = await fetch(process.env.NEXT_PUBLIC_DOMAIN + "/api/getDateSensitiveData?username=" + username, { cache: "no-store" });
-    if (data.status !== 200) {
-        throw new Error(await data.text());
-    } else {
-        return await data.json();
+import { ApiRequest, DateSensitiveData } from "../types";
+import apiFetch from "./apiFetch";
+
+async function getDateSensitiveData(username: string): Promise<ApiRequest<DateSensitiveData>> {
+    const res = await apiFetch("/getDateSensitiveData", { username });
+    
+    return {
+        success: res.status === 200,
+        data: {
+            ...(await res.json())
+        }
     }
 }
+
+export default getDateSensitiveData;

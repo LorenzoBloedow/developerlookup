@@ -1,8 +1,15 @@
-export default async function getBasicUserData(username: string) {
-    const data = await fetch(process.env.NEXT_PUBLIC_DOMAIN + "/api/getBasicUserData?username=" + username, { cache: "no-store" });
-    if (data.status !== 200) {
-        throw new Error(await data.text());
-    } else {
-        return await data.json();
+import { ApiRequest, BasicUserData } from "./../types/index.d";
+import apiFetch from "./apiFetch";
+
+async function getBasicUserData(username: string): Promise<ApiRequest<BasicUserData>> {
+    const res = await apiFetch("/getBasicUserData", { username });
+
+    return {
+        success: res.status === 200,
+        data: {
+            ...(await res.json())
+        }
     }
 }
+
+export default getBasicUserData;

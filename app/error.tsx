@@ -3,6 +3,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { BsGithub } from "react-icons/bs";
 import { ApiError } from "../types";
 import getAuthUrl from "../util/getAuthUrl";
+import getMinutesUntilNextHour from "../util/getMinutesUntilNextHour";
 
 function IllegalCharactersUsernameError({ goBack }: { goBack: () => void }) {
     return (
@@ -31,7 +32,7 @@ function IllegalCharactersUsernameError({ goBack }: { goBack: () => void }) {
     );
 }
 
-function RateLimitingError({ goBack }: { goBack: () => void }) {
+function RateLimitingError({ goBack, isLoggedIn }: { goBack: () => void, isLoggedIn: boolean }) {
     const path = usePathname();
     const authString = getAuthUrl(path);
 
@@ -46,21 +47,31 @@ function RateLimitingError({ goBack }: { goBack: () => void }) {
 
                 <div>
                     <h1 className="text-white text-2xl">We've run out of API calls!</h1>
-                    <h2 className="text-white">But you can get more by logging in with GitHub!</h2>
+                    <h2 className="text-white">
+                        {
+                            isLoggedIn ?
+                            `We'll get more in ${getMinutesUntilNextHour()} minutes!`
+                            :
+                            "But you can get more by logging in with GitHub!"
+                        }
+                    </h2>
                 </div>
 
                 <div className="flex gap-5">
-                    <button
-                    className="rounded-xl bg-slate-700 tracking-wide border-2 border-slate-300
-                    text-slate-300 text-sm px-4 py-2 hover:bg-slate-800 active:bg-slate-900
-                    flex gap-2 items-center justify-center"
-                    onPointerUp={() => location.href = authString}
-                    >
-                        <BsGithub
-                        className="w-4 h-4"
-                        />
-                        <p>Log In</p>
-                    </button>
+                    {
+                        !isLoggedIn &&
+                        <button
+                        className="rounded-xl bg-slate-700 tracking-wide border-2 border-slate-300
+                        text-slate-300 text-sm px-4 py-2 hover:bg-slate-800 active:bg-slate-900
+                        flex gap-2 items-center justify-center"
+                        onPointerUp={() => location.href = authString}
+                        >
+                            <BsGithub
+                            className="w-4 h-4"
+                            />
+                            <p>Log In</p>
+                        </button>
+                    }
 
                     <button
                     onPointerUp={goBack}
@@ -105,7 +116,7 @@ function GenericError({ message, goBack }: { message?: string, goBack: () => voi
 
 }
 
-const Error = ({ error }: { error: ApiError & { digest?: string }, reset: () => void }) => {
+const Error = ({ error }: { error: ApiError<unknown> & { digest?: string }, reset: () => void }) => {
     const router = useRouter();
     function handleClick() {
         router.back();
@@ -122,7 +133,7 @@ const Error = ({ error }: { error: ApiError & { digest?: string }, reset: () => 
         case "invalidUsername":
             return <IllegalCharactersUsernameError goBack={handleClick} />
         case "rateLimited":
-            return <RateLimitingError goBack={handleClick} />
+            return <RateLimitingError isLoggedIn={(error as ApiError<"rateLimited">).data.extra.isLoggedIn} goBack={handleClick} />
         default:
             return <GenericError message={error?.data?.message} goBack={handleClick} />
     }

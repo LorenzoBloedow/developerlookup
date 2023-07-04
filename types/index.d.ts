@@ -127,11 +127,17 @@ export type LooseObject = { [key: string]: any };
 
 export type ApiErrorCode = "rateLimited" | "invalidUsername" | "failedAuthentication" | "unknown";
 
-export type ApiError = {
+export type ApiError<Code extends (ApiErrorCode | unknown)> = {
     success: false,
-    data: {
+    data: Code extends "rateLimited" ? {
         message: string,
-        code: ApiErrorCode
+        code: Code,
+        extra:  {
+            isLoggedIn: boolean
+        }
+    } : {
+        message: string,
+        code: Code
     }
 }
 
@@ -142,7 +148,9 @@ export type ApiRequest<Data> = Data extends undefined ? ({
     data: Data
 } | ApiError);
 
-
-export type ApiErrorData = ApiError["data"];
-
 export type GenericOctokitFunction = (params: RequestParameters & LooseObject) => Promise<void>;
+
+export type ApiEndpoint = `/${"authenticateUser" | "getBasicUserData" |
+"getDateSensitiveData" | "getMostPopularRepo" |
+"getProfileComments" | "getRecentData" |
+"getSurroundingData" |  "revalidate"}`;

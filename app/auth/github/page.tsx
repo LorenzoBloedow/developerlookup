@@ -1,8 +1,8 @@
 "use client";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useRef, useState, ReactNode } from "react";
+import { useState, useEffect, ReactNode } from "react";
 import Spinner from "../../../components/Spinner";
-import { authenticateUser } from "../../../util/getOctokit";
+import authenticateUser from "../../../util/authenticateUser";
 
 interface AuthSubtitleProps {
     children: ReactNode;
@@ -89,16 +89,15 @@ function AuthContainer({ accent, children }: AuthContainerProps) {
 
 function Page() {
     const searchParams = useSearchParams();
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(false);
+    const [status, setStatus] = useState<"loading" | "error" | "success">("loading");
     
     useEffect(() => {
-        authenticateUser(searchParams?.get?.("code"))
-        .then(() => setLoading(false))
-        .catch(() => setError(true));
-    }, []);
+        authenticateUser(searchParams?.get?.("code"), searchParams?.get?.("state"))
+        .then(res => setStatus(res.success ? "success" : "error"))
+        .catch(() => setStatus("error"));
+    }, [searchParams]);
 
-    if (error) {
+    if (status === "error") {
         return (
             <AuthContainer
             accent="red"
@@ -122,7 +121,7 @@ function Page() {
         )
     }
 
-    if (loading) {
+    if (status === "loading") {
         return (
             <AuthContainer
             accent="orange"

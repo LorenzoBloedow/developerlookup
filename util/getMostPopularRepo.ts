@@ -1,8 +1,15 @@
-export default async function getBasicUserData(username: string) {
-    const data = await fetch(process.env.NEXT_PUBLIC_DOMAIN + "/api/getMostPopularRepo?username=" + username, { cache: "no-store" });
-    if (data.status !== 200) {
-        throw new Error(await data.text());
-    } else {
-        return await data.json();
+import { ApiRequest, MostPopularRepo } from "../types";
+import apiFetch from "./apiFetch";
+
+async function getMostPopularRepo(username: string): Promise<ApiRequest<MostPopularRepo>> {
+    const res = await apiFetch("/getMostPopularRepo", { username });
+
+    return {
+        success: res.status === 200,
+        data: {
+            ...(await res.json())
+        }
     }
 }
+
+export default getMostPopularRepo;
