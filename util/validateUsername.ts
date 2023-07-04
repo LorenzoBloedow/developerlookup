@@ -1,6 +1,12 @@
-const usernameRegex = /^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i;
-export default function validateUsername(username: string | string[] | undefined) {
-    if (!username) {
+import usernameRegex from "github-username-regex";
+
+export default function validateUsername(username: string): {
+    success: false;
+    message: string;
+} | {
+    success: true;
+} {
+    if (username.search(/\w/) === -1) {
         return {
             success: false,
             message: "Missing username."
@@ -10,7 +16,7 @@ export default function validateUsername(username: string | string[] | undefined
     if (typeof username !== "string") {
         return {
             success: false,
-            message: "Malformed username."
+            message: "Unknown Error"
         }
     }
 
