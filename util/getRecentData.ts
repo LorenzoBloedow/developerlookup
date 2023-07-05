@@ -1,15 +1,8 @@
 import { ApiRequest, MostRecentData } from "../types";
 import apiFetch from "./apiFetch";
 
-async function getRecentData(username: string): Promise<ApiRequest<MostRecentData, unknown>> {
-    const res = await apiFetch("/getRecentData", { username });
-    
-    return {
-        success: res.status === 200,
-        data: {
-            ...(await res.json())
-        }
-    }
+function getRecentData(username: string): Promise<ApiRequest<MostRecentData, unknown>> {
+    return apiFetch("/getRecentData", { username });
 }
 
 export default getRecentData;

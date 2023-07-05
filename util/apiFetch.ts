@@ -2,7 +2,7 @@ import "server-only";
 import { ApiEndpoint, LooseObject } from "../types";
 import { cookies } from "next/headers";
 
-function apiFetch(endpoint: ApiEndpoint, queryParams?: LooseObject, body?: LooseObject) {
+async function apiFetch(endpoint: ApiEndpoint, queryParams?: LooseObject, body?: LooseObject) {
     let finalEndpoint = `${process.env.NEXT_PUBLIC_DOMAIN}/api${endpoint}`;
 
     const queryKeys = Object.keys(queryParams || {});
@@ -20,17 +20,17 @@ function apiFetch(endpoint: ApiEndpoint, queryParams?: LooseObject, body?: Loose
         }
     }
 
-    return (
-        fetch(
-            finalEndpoint,
-            {
-                method: body ? "POST" : "GET",
-                credentials: "same-origin",
-                body: JSON.stringify(body),
-                headers
-            }
-        )
+    const res = await fetch(
+        finalEndpoint,
+        {
+            method: body ? "POST" : "GET",
+            credentials: "same-origin",
+            body: JSON.stringify(body),
+            headers
+        }
     );
+    
+    return await res.json();
 }
 
 export default apiFetch;
