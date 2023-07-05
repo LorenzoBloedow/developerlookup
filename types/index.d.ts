@@ -129,6 +129,7 @@ export type ApiErrorCode = "rateLimited" | "invalidUsername" | "failedAuthentica
 
 export type ApiError<Code extends (ApiErrorCode | unknown)> = {
     success: false,
+    // If the code is known at compile time, it must have extra, otherwise it might have
     data: Code extends "rateLimited" ? {
         message: string,
         code: Code,
@@ -137,16 +138,19 @@ export type ApiError<Code extends (ApiErrorCode | unknown)> = {
         }
     } : {
         message: string,
-        code: Code
+        code: Code,
+        extra?: {
+            isLoggedIn: boolean
+        }
     }
 }
 
-export type ApiRequest<Data> = Data extends undefined ? ({
+export type ApiRequest<Data extends LooseObject, ErrorCode extends (ApiErrorCode | unknown)> = Data extends undefined ? ({
     success: true,
-} | ApiError) : ({
+} | ApiError<ErrorCode>) : ({
     success: true,
     data: Data
-} | ApiError);
+} | ApiError<ErrorCode>);
 
 export type GenericOctokitFunction = (params: RequestParameters & LooseObject) => Promise<void>;
 

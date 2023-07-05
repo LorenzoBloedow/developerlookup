@@ -1,7 +1,7 @@
 import { ApiRequest, DateSensitiveData } from "../types";
 import apiFetch from "./apiFetch";
 
-async function getDateSensitiveData(username: string): Promise<ApiRequest<DateSensitiveData>> {
+async function getDateSensitiveData(username: string): Promise<ApiRequest<DateSensitiveData, unknown>> {
     const res = await apiFetch("/getDateSensitiveData", { username });
     
     return {
