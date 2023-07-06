@@ -1,3 +1,4 @@
+import { ReadableStream } from "stream/web";
 import { RestEndpointMethodTypes } from "@octokit/rest";
 import { RequestParameters } from "@octokit/types";
 
@@ -125,7 +126,9 @@ export type TimeSpan = { startDate: number, endDate: number };
 
 export type LooseObject = { [key: string]: any };
 
-export type ApiErrorCode = "rateLimited" | "invalidUsername" | "failedAuthentication" | "unknown";
+export type ApiErrorCode = "rateLimited" | "rateLimitedSecondary" | "invalidUsername" | "failedAuthentication" | "unknown";
+
+type Seconds = string;
 
 export type ApiError<Code extends (ApiErrorCode | unknown)> = {
     success: false,
@@ -135,6 +138,12 @@ export type ApiError<Code extends (ApiErrorCode | unknown)> = {
         code: Code,
         extra:  {
             isLoggedIn: boolean
+        }
+    } : Code extends "rateLimitedSecondary" ? {
+        message: string,
+        code: Code,
+        extra: {
+            retryAfter: Seconds | null;  
         }
     } : {
         message: string,
