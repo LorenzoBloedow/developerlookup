@@ -55,19 +55,27 @@ export type RepoDateAndUrl = {
 
 export type CommitAmount = { amount: number, date?: Date }
 
-type DateSensitiveDataTimespanData = {
-    pullRequestAmount: number;
-    commitAmount: number;
-    programmingLanguageScore: {
+type Percentage = number;
+
+type ProgrammingLanguageScore = {
+    languages: {
         name: string;
         color: string;
         score: number;
-    }[];
+    }[],
+    dataUsed: Percentage; 
+};
+
+type DateSensitiveDataTimespanData = {
+    COMMIT_DETAILS_LIMIT: number;
+    pullRequestAmount: number;
+    commitAmount: number;
+    programmingLanguageScore: ProgrammingLanguageScore;
     longestCommitStreak: TimeSpan;
     longestBreakStreak: TimeSpan;
     mostCommitsDay: CommitAmount;
     mostActiveDay: EventSummary[];
-    mostPopularRepoWorkedOn: Partial<PopularRepo>;
+    mostPopularRepoWorkedOn: RepositorySummary & { stars: number, eventAction: string | null };
 }
 
 export type DateSensitiveData = {
@@ -78,7 +86,6 @@ export type DateSensitiveData = {
 export type MostPopularRepo = PopularRepo & { userType: "member" | "owner" };
 
 export type EventsData = {
-
     mostPopularRepo: MostPopularRepo;
 
     ninetyDays: DateSensitiveData;
