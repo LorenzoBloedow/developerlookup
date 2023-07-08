@@ -1,7 +1,7 @@
 import getBasicUserData from "../../../util/getBasicUserData";
 import getCountryFlag from "../../../util/getCountryFlag";
 import { FunctionComponent } from "react";
-import GitHubSquare from "../GitHubSquare";
+import GitHubSquare from "./GitHubSquare";
 import BypassErrorSerialization from "../../BypassErrorSerialization";
 
 interface CountryFlagProps {
