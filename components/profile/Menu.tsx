@@ -8,11 +8,11 @@ interface MenuProps {
     overview: JSX.Element;
     recentActivity: JSX.Element;
     streaksAndMetrics: JSX.Element;
-    milestones: JSX.Element;
-    surroundingActivity: JSX.Element;
+    // milestones: JSX.Element;
+    // surroundingActivity: JSX.Element;
 }
 
-const Menu: FunctionComponent<MenuProps> = ({ overview, recentActivity, streaksAndMetrics, milestones, surroundingActivity }) => {
+const Menu: FunctionComponent<MenuProps> = ({ overview, recentActivity, streaksAndMetrics }) => {
     const [selected, setSelected] = useState<DrawerOptions>("Overview");
 
     const selectionRotation = useRef(0);
@@ -49,15 +49,17 @@ const Menu: FunctionComponent<MenuProps> = ({ overview, recentActivity, streaksA
 
             { (selected === "StreaksAndMetrics") && streaksAndMetrics }
 
-            { (selected === "Milestones") && milestones }
+            {/* { (selected === "Milestones") && milestones }
 
-            { (selected === "SurroundingActivity") && surroundingActivity }
+            { (selected === "SurroundingActivity") && surroundingActivity } */}
 
             <button
-            className="p-4 border-black border-2 rounded-3xl absolute -bottom-14 left-[42%] bg-white shadow-black shadow-lg"
+            className="p-2.5 border-2 rounded-full sticky -bottom-4 bg-neu-mid shadow-black shadow-lg"
             onPointerUp={rotateSelectedState}
             >
-                    <IoIosArrowDown size={100} />
+                <IoIosArrowDown
+                className="w-6 h-6"
+                />
             </button>
         </div>
         
