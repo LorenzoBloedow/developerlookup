@@ -1,8 +1,10 @@
 import { FunctionComponent, Suspense } from "react";
 import Followers from "./Followers";
 import JoinDate from "./JoinDate";
-import TwitterOrGists from "./TwitterOrGists";
+import Twitter from "./Twitter/Twitter";
+import Gist from "./Gist";
 import UserType from "./UserType";
+import Subheading from "./Subheading";
 
 interface OverviewProps {
     username: string
@@ -13,9 +15,9 @@ const Overview: FunctionComponent<OverviewProps> = ({ username }) => {
         <div
         className="flex flex-wrap justify-center"
         >
-            <h1 className="text-2xl font-bold">
+            <Subheading>
                 Overview
-            </h1>
+            </Subheading>
             <div className="flex gap-4">
                 
                 <Suspense>
@@ -31,7 +33,12 @@ const Overview: FunctionComponent<OverviewProps> = ({ username }) => {
    
             <Suspense>
                 {/** @ts-expect-error */}
-                <TwitterOrGists username={username} />
+                <Twitter username={username} />
+            </Suspense>
+
+            <Suspense>
+                {/** @ts-expect-error */}
+                <Gist username={username} />
             </Suspense>
 
             <Suspense>
