@@ -49,11 +49,11 @@ export type TimeInterval = {
 }
 
 export type RepoDateAndUrl = {
-    date: Date;
+    date: string;
     repoUrl: string;
 }
 
-export type CommitAmount = { amount: number, date?: Date }
+export type CommitAmount = { amount: number, date?: string }
 
 type Percentage = number;
 
@@ -93,7 +93,7 @@ export type EventsData = {
 }
 
 type RecentRepo = {
-    date: Date;
+    date: string;
     url: string;
     name: string;
 }
@@ -101,7 +101,7 @@ type RecentRepo = {
 export type MostRecentData = {
     lastActive: {
         action: string;
-        date: Date;
+        date: string;
     }
     lastCommit?: RecentRepo;
     lastPullRequest?: RecentRepo;
@@ -115,7 +115,7 @@ export type BasicUserData = {
     admin: boolean,
     location: string | null,
     followers: number,
-    joinDate: Date,
+    joinDate: string,
     gistAmount: number,
     twitter: string | null | undefined,
     hireable: boolean | null
