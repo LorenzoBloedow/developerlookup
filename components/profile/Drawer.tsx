@@ -28,9 +28,9 @@ const Drawer: FunctionComponent<DrawerProps> = ({ setSelectedValue }) => {
 
     useEffect(() => {
         if (toggle) {
-            menuContentRef.current!.style.visibility = "visible";
+            menuContentRef.current!.style.display = "flex";
         } else {
-            menuContentRef.current!.style.visibility = "hidden";
+            menuContentRef.current!.style.display = "none";
         }
     }, [toggle]);
 
@@ -59,7 +59,7 @@ const Drawer: FunctionComponent<DrawerProps> = ({ setSelectedValue }) => {
             </button>
 
             <div
-            className="invisible shadow-black
+            className="shadow-black
             shadow-lg p-5 bg-slate-300 rounded-md
             flex flex-col gap-5 text-slate-400"
             ref={menuContentRef}
