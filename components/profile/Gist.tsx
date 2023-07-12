@@ -14,10 +14,11 @@ async function Gist({ username }: { username: string }) {
                 (result.success) &&
                 <div
                 className="flex flex-col text-xs items-center justify-center
-                w-full gap-1 border-slate-300 border-b-2 py-8 text-slate-500"
+                w-full gap-1 border-slate-300 border-b-2 py-8 text-slate-500
+                md:text-sm"
                 >
                     <TiCodeOutline
-                    className="w-12 h-12"
+                    className="w-12 h-12 md:w-16 md:h-16"
                     />
                     <p>
                         Number of gists:

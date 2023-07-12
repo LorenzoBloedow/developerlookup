@@ -13,7 +13,7 @@ const LongestStreak = async ({ startDate, endDate, title, icon }: LongestStreakP
 
     return (
         <div
-        className="flex flex-col items-center gap-4"
+        className="flex flex-col items-center gap-4 md:text-lg"
         >
             <Subheading>
                 {title}
@@ -25,10 +25,10 @@ const LongestStreak = async ({ startDate, endDate, title, icon }: LongestStreakP
                 {icon}
 
                 <p>
-                    {streakDays} Days
+                    {streakDays} Day{streakDays > 1 ? "s" : ""}
                 </p>
                 <p
-                className="text-xs"
+                className="text-xs md:text-sm"
                 >
                     {new Date(startDate).toLocaleDateString()} - {new Date(endDate).toLocaleDateString()}
                 </p>

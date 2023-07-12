@@ -15,7 +15,8 @@ async function Twitter({ username }: { username: string }) {
                 (result.success && result.data?.twitter) &&
                 <div
                 className="flex flex-col text-xs items-center justify-center
-                w-full gap-1 border-slate-300 border-b-2 py-8"
+                w-full gap-1 border-slate-300 border-b-2 py-8
+                md:text-lg"
                 >
                     <TwitterButton
                     handle={result.data.twitter}

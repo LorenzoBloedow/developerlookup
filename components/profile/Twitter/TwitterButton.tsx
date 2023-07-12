@@ -10,7 +10,7 @@ const TwitterButton: FunctionComponent<TwitterButtonProps> = ({ handle }) => {
     return (
         <TbBrandTwitter
         role="button"
-        className="w-12 h-12 text-blue-400"
+        className="w-12 h-12 md:w-16 md:h-16 text-blue-400"
         onPointerUp={() => location.assign("https://twitter.com/" + handle)}
         />
     );

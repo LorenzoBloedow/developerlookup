@@ -15,15 +15,16 @@ async function LastActive({ username }: { username: string }) {
                 (result.success) &&
                 <div
                 className="flex flex-col gap-2 text-sm items-center
-                justify-center text-slate-500 mb-auto w-28"
+                justify-center text-slate-500 mb-auto md:mb-0 w-28
+                md:text-base md:leading-tight"
                 >
                     <GiWantedReward
-                    className="w-12 h-12 text-slate-500"
+                    className="w-12 h-12 md:w-16 md:h-16 text-slate-500"
                     />
                     <div>
                         <p>Last active<br /> on: </p>
                         <p
-                        className="text-xs"
+                        className="text-xs md:text-sm"
                         >
                             {
                                 result.data.lastActive ?

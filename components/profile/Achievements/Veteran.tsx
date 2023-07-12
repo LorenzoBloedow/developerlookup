@@ -7,7 +7,7 @@ function Veteran({ name }: { name: string }) {
         tip={name + " has been on GitHub for over 5 years!"}
         >
             <MdOutlineElderly
-            className="rounded-full bg-slate-400 text-slate-700 p-1 w-5 h-5"
+            className="rounded-full bg-slate-400 text-slate-700 p-1 w-5 h-5 md:w-10 md:h-10 md:p-2.5"
             />
         </Tooltip>
     );

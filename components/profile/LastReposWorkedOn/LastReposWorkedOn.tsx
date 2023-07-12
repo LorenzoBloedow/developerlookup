@@ -31,7 +31,7 @@ async function LastReposWorkedOn({ username }: { username: string }) {
                 (result.success) &&
                 <div className="flex flex-col items-center gap-5">
                     <Subheading>
-                        Most recent activity
+                        Most Recent Repository Activity
                     </Subheading>
                     <div className="flex flex-col items-center gap-5">
                         {
@@ -39,9 +39,9 @@ async function LastReposWorkedOn({ username }: { username: string }) {
                         recentRepos
                         :
                             <div className="flex flex-col items-center justify-center">
-                                <GiWindHole className="w-12 h-12 text-[#221335]" />
+                                <GiWindHole className="w-12 h-12 md:w-16 md:h-16 text-[#221335]" />
                                 <p
-                                className="text-sm"
+                                className="text-sm md:text-base"
                                 >
                                     We looked everywhere but couldn't find anything!
                                 </p>

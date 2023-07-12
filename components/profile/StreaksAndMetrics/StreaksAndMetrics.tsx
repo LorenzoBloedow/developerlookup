@@ -14,7 +14,7 @@ interface StreaksAndMetrics {
 
 function StreaksAndMetrics({ username }: StreaksAndMetrics) {
     return (
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-8 md:gap-10">
             <Suspense>
                 {/** @ts-expect-error */}
                 <MostPopularRepo username={username} />

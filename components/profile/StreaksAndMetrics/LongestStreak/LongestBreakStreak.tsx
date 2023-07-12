@@ -25,7 +25,7 @@ const LongestBreakStreak = async ({ username }: LongestBreakStreakProps) => {
                 endDate={result.data.thirtyDays.longestBreakStreak.endDate}
                 icon={
                     <FaUmbrellaBeach
-                    className="w-12 h-12 text-slate-700"
+                    className="w-12 h-12 md:w-16 md:h-16 text-slate-700"
                     />
                 }
                 />

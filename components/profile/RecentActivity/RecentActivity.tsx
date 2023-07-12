@@ -4,6 +4,7 @@ import LastCommit from "../LastCommit/LastCommit";
 import LastPullRequest from "./LastPullRequest";
 import LastReposWorkedOn from "../LastReposWorkedOn/LastReposWorkedOn";
 import ProfileLastUpdated from "./ProfileLastUpdated";
+import Subheading from "../Subheading";
 
 interface RecentActivityProps {
     username: string;
@@ -15,17 +16,24 @@ const RecentActivity: FunctionComponent<RecentActivityProps> = ({ username }) =>
         className="flex flex-col gap-10"
         >
             <div
-            className="flex justify-center items-center gap-5"
+            className="flex flex-col gap-5"
             >
-                <Suspense>
-                    {/** @ts-expect-error */}
-                    <ProfileLastUpdated username={username} />
-                </Suspense>
+                <Subheading>
+                    Last General Activity
+                </Subheading>
 
-                <Suspense>
-                    {/** @ts-expect-error */}
-                    <LastActive username={username} />
-                </Suspense>
+                <div
+                className="flex justify-center items-center gap-5"
+                >
+                    <Suspense>
+                        {/** @ts-expect-error */}
+                        <ProfileLastUpdated username={username} />
+                    </Suspense>
+                    <Suspense>
+                        {/** @ts-expect-error */}
+                        <LastActive username={username} />
+                    </Suspense>
+                </div>
             </div>
 
             <hr className="border-[1px] border-slate-300" />

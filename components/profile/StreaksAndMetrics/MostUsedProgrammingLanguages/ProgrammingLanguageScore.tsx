@@ -10,16 +10,17 @@ function getTopProgrammingLanguages(programmingLanguageScore: { name: string, sc
         
         programmingLanguages.push(
             <li
-            className="text-center rounded-lg border-[1px] p-3 w-24 h-24"
+            className="text-center rounded-lg border-[1px] p-3 w-24 h-24 md:w-32 md:h-32 md:p-5
+            flex justify-center items-center"
             style={{
                 borderColor: colors[i]
             }}
             key={lang.name}
             >
-                <p className="font-bold text-center flex flex-col items-center text-xs">
-                    <span className="font-bold text-xl" style={{ color: colors[i] }}>#{i + 1}</span>
+                <p className="font-bold text-center flex flex-col items-center text-xs md:text-sm">
+                    <span className="font-bold text-xl md:text-2xl" style={{ color: colors[i] }}>#{i + 1}</span>
 
-                    <div className="font-normal filter brightness-75 saturate-50 w-20">
+                    <div className="font-normal filter brightness-75 saturate-50 w-20 md:w-24">
                         <span className="font-bold" style={{ color: lang.color }}>
                             {" " + lang.name}
                         </span>
@@ -34,11 +35,11 @@ function getTopProgrammingLanguages(programmingLanguageScore: { name: string, sc
     }
     return (
         <ul
-        className="flex flex-col items-center gap-3"
+        className="flex flex-col items-center gap-3 md:gap-6"
         >
             {programmingLanguages.shift()}
             <div
-            className="flex justify-center gap-8"
+            className="flex justify-center gap-8 md:gap-10"
             >
                 {programmingLanguages}
             </div>
@@ -62,7 +63,7 @@ async function ProgrammingLanguageScore({ username }: { username: string }) {
                     (result.data.thirtyDays.programmingLanguageScore.languages.length >= 3) ?
                     <>
                         <p
-                        className="text-[0.6rem] w-48 h-7"
+                        className="text-[0.6rem] md:text-xs w-48 h-7 md:h-10 md:-mt-1.5"
                         style={{
                             visibility: (progLang.dataUsed < 100) ? "visible" : "hidden"
                         }}
@@ -76,7 +77,7 @@ async function ProgrammingLanguageScore({ username }: { username: string }) {
                     </>
                     :
                     <p
-                    className="text-xs text-slate-500"
+                    className="text-xs md:text-sm text-slate-500"
                     >
                         We couldn't find any data about your three most used programming languages in the past 30 days
                     </p>

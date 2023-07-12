@@ -40,7 +40,7 @@ const ActivityList: FunctionComponent<ActivityListProps> = ({ activity }) => {
 
     return (
         <ol
-        className="flex flex-col items-center gap-2 h-72 overflow-y-auto"
+        className="flex flex-col items-center gap-2 max-h-72 overflow-y-auto"
         >
             {listItems}
         </ol>

@@ -15,15 +15,15 @@ async function ProfileLastUpdated({ username }: { username: string }) {
             {
                 (result.success) &&
                 <div
-                className="flex flex-col gap-2 text-sm w-28
+                className="flex flex-col gap-2 text-sm md:text-base w-28
                 items-center justify-center text-slate-500"
                 >
                     <AiFillEdit
-                    className="w-12 h-12 text-slate-500"
+                    className="w-12 h-12 md:w-16 md:h-16 text-slate-500"
                     />
                     <div>
                         <p>Profile last updated on: </p>
-                        <p className="text-xs">{formatDate(result.data.profileLastUpdated, "short")}</p>
+                        <p className="text-xs md:text-sm">{formatDate(result.data.profileLastUpdated, "short")}</p>
                     </div>
                 </div>
             }

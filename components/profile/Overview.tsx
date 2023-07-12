@@ -13,12 +13,12 @@ interface OverviewProps {
 const Overview: FunctionComponent<OverviewProps> = ({ username }) => {
     return (
         <div
-        className="flex flex-wrap justify-center"
+        className="flex flex-wrap justify-center md:gap-2"
         >
             <Subheading>
                 Overview
             </Subheading>
-            <div className="flex gap-4">
+            <div className="flex gap-4 md:gap-10">
                 
                 <Suspense>
                     {/** @ts-expect-error */}

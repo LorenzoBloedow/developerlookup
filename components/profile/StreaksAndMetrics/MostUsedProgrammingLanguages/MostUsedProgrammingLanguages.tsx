@@ -10,7 +10,7 @@ interface MostUsedProgrammingLanguagesProps {
  
 const MostUsedProgrammingLanguages: FunctionComponent<MostUsedProgrammingLanguagesProps> = ({ username }) => {
     return (
-        <div className="flex flex-col gap-2 items-center">
+        <div className="flex flex-col gap-2 md:gap-3.5 items-center">
             <Subheading>Most used programming languages</Subheading>
             <Podium />
             <Suspense

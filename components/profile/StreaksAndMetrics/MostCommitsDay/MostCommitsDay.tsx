@@ -25,7 +25,7 @@ const MostCommitsDay = async ({ username }: MostCommitsDayProps) => {
                         Most Commits In a Day
                     </Subheading>
                     <GoTrophy
-                    className="w-12 h-12 text-slate-700"
+                    className="w-12 h-12 md:w-16 md:h-16 text-slate-700"
                     />
 
                     <div
@@ -33,18 +33,18 @@ const MostCommitsDay = async ({ username }: MostCommitsDayProps) => {
                     >
                         <div>
                             <p
-                            className="text-xl"
+                            className="text-xl md:text-2xl"
                             >
                                 {result.data.thirtyDays.mostCommitsDay.amount}
                             </p>
                             <p
-                            className="text-sm"
+                            className="text-sm md:text-base"
                             >
-                            commits
+                            commit{result.data.thirtyDays.mostCommitsDay.amount > 1 ? "s" : ""}
                             </p>
                         </div>
                         <p
-                        className="text-xs"
+                        className="text-xs md:text-sm"
                         >
                             {new Date(result.data.thirtyDays.mostCommitsDay.date).toLocaleDateString()}
                         </p>

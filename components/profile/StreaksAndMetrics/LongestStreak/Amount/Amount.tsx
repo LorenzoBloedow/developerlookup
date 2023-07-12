@@ -23,10 +23,10 @@ const Amount: FunctionComponent<AmountProps> = ({ amount, title, subtitle, icon 
                 {icon}
 
                 <div
-                className="flex flex-col"
+                className="flex flex-col md:text-lg"
                 >
                     {amount}
-                    <p className="text-xs">{subtitle}</p>
+                    <p className="text-xs md:text-sm">{subtitle}</p>
                 </div>
             </div>
         </div>

@@ -19,8 +19,8 @@ async function LastCommit({ username }: { username: string }) {
                 >
                     <IoMdGitCommit className="w-12 h-12 text-slate-500" />
                     <div>
-                        <p className="text-sm">Last commit: </p>
-                        <p className="text-xs">
+                        <p className="text-sm md:text-base">Last commit: </p>
+                        <p className="text-xs md:text-sm">
                             {
                                 result.data.lastCommit?.date ?
                                 formatDate(result.data.lastCommit.date, "short")

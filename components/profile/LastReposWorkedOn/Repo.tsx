@@ -20,14 +20,22 @@ function Repo({ repoName, repoAction, date, repoUrl }: RepoProps) {
             className="flex flex-col items-center
             justify-center gap-1"
             >
-                <RiGitRepositoryFill color="#52280e" className="h-12 w-12" />
-                <p className="text-xs font-bold break-all w-20 truncate">{repoName}</p>
+                <RiGitRepositoryFill
+                color="#52280e"
+                className="w-12 h-12 md:w-16 md:h-16"
+                />
+                <p
+                className="text-xs font-bold break-all w-20 truncate
+                md:text-sm md:w-28"
+                >
+                    {repoName}
+                </p>
             </div>
             
             <div
-            className="flex flex-col w-32"
+            className="flex flex-col w-44"
             >
-                <p className="text-sm">- {getEventDescription(repoAction)}</p>
+                <p className="text-sm md:text-base">- {getEventDescription(repoAction)}</p>
                 {date}
             </div>
         </div>

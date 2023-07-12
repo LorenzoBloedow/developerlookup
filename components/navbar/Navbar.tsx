@@ -1,12 +1,6 @@
-import { Archivo_Black } from "next/font/google";
 import Button from "./Button";
 import { TbBrandTwitterFilled } from "react-icons/tb";
 import Link from "next/link";
-
-const archivoBlack = Archivo_Black({
-    subsets: ["latin"],
-    weight: "400"
-}) 
 
 const Navbar = () => {
  

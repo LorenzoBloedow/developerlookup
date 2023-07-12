@@ -18,11 +18,11 @@ async function MostPopularRepo({ username }: MostPopularRepoProps) {
                 Most Popular Repository
             </Subheading>
             <GiStarsStack
-            className="w-12 h-12 text-[#e4bd11]"
+            className="w-12 h-12 text-[#e4bd11] md:w-16 md:h-16"
             />
             
             <div
-            className="w-60"
+            className="w-60 md:w-72"
             >
                 <Suspense
                 fallback={<RepoDataLoading />}

@@ -32,7 +32,7 @@ const MostPopularRepoWorkedOn = async ({ username }: MostPopularRepoWorkedOnProp
                 className="flex flex-col items-center gap-1"
                 >
                     <FaSplotch
-                    className="w-12 h-12 text-[#e4bd11]"
+                    className="w-12 h-12 md:w-16 md:h-16 text-[#e4bd11]"
                     />
     
                     <div
@@ -45,7 +45,7 @@ const MostPopularRepoWorkedOn = async ({ username }: MostPopularRepoWorkedOnProp
                                 {result.data.thirtyDays.mostPopularRepoWorkedOn.stars}
                             </p>
                             <p
-                            className="text-xs"
+                            className="text-xs md:text-sm"
                             >
                                 stars
                             </p>

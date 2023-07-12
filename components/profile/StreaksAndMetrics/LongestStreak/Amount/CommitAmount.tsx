@@ -21,7 +21,7 @@ async function CommitAmount({ username }: CommitAmountProps) {
                 amount={result.data.thirtyDays.commitAmount}
                 title="Number Of Commits In The Last 30 Days"
                 subtitle="Commits"
-                icon={<IoMdGitCommit className="w-12 h-12 -my-2 text-slate-700" />}
+                icon={<IoMdGitCommit className="w-12 h-12 md:w-16 md:h-16 -my-2 text-slate-700" />}
                 />
             }
         </>

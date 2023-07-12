@@ -15,10 +15,11 @@ async function Followers({ username }: { username: string }) {
                 (result.success) &&
                 <div
                 className="flex flex-col text-xs items-center
-                border-slate-300 border-b-2 p-4 text-center w-28"
+                border-slate-300 border-b-2 p-4 text-center w-28
+                md:text-sm"
                 >
                     <MdPeople
-                    className="w-12 h-12 text-slate-500"
+                    className="w-12 h-12 md:w-16 md:h-16 text-slate-500"
                     />
                     <div>
                         <p>

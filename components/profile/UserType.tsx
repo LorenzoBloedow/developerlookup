@@ -14,16 +14,19 @@ async function UserType({ username }: { username: string }) {
                 (result.success) &&
                 <div className="flex flex-col gap-2 items-center justify-center py-8">
                     <FaUserAlt
-                    className={`w-12 h-12 ${ result.data.admin ? "text-red-500" : "text-slate-500" }`}
+                    className={
+                        `w-12 h-12 md:w-16 md:h-16
+                        ${ result.data.admin ? "text-red-500" : "text-slate-500" }`
+                    }
                     />
                     <div>
                         <p
-                        className="text-sm"
+                        className="text-sm md:text-base"
                         >
                             User type:
                         </p>
                         <p
-                        className="text-xs"
+                        className="text-xs md:text-sm"
                         >
                             {
                                 result.data.admin ?

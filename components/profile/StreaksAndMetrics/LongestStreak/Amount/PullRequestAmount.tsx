@@ -21,7 +21,7 @@ async function PullRequestAmount({ username }: PullRequestAmountProps) {
                 amount={result.data.thirtyDays.pullRequestAmount}
                 title="Number Of PRs In The Last 30 Days"
                 subtitle="Pull Requests"
-                icon={<VscGitPullRequest className="w-12 h-12 text-slate-700" />}
+                icon={<VscGitPullRequest className="w-12 h-12 md:w-16 md:h-16 text-slate-700" />}
                 />
             }
         </>

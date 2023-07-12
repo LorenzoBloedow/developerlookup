@@ -25,7 +25,7 @@ async function CountryFlag({ username }: CountryFlagProps) {
                 (Flag) ?
                 <Flag
                 aria-label="The user's country flag."
-                className="w-20 h-10"
+                className="w-full h-full"
                 />
                 :
                 <GitHubSquare username={username} />

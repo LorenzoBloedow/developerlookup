@@ -1,46 +1,40 @@
 "use client"
-
 import { FunctionComponent, useRef, useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import Drawer, { DrawerOptions } from "./Drawer";
 
-interface MenuProps {
+interface SectionProps {
     overview: JSX.Element;
     recentActivity: JSX.Element;
     streaksAndMetrics: JSX.Element;
     // milestones: JSX.Element;
     // surroundingActivity: JSX.Element;
+    drawerButtonSize: string;
 }
 
-const Menu: FunctionComponent<MenuProps> = ({ overview, recentActivity, streaksAndMetrics }) => {
+const Section: FunctionComponent<SectionProps> = ({ overview, recentActivity, streaksAndMetrics, drawerButtonSize }) => {
     const [selected, setSelected] = useState<DrawerOptions>("Overview");
 
     const selectionRotation = useRef(0);
-    const selectionOptions = ["Overview", "RecentActivity", "StreaksAndMetrics", "Milestones", "SurroundingActivity"];
+    const selectionOptions = ["Overview", "RecentActivity", "StreaksAndMetrics", "Milestones", "SurroundingActivity"] as const;
 
     function rotateSelectedState() {
-        if (selectionRotation.current > 4) {
+        if (selectionRotation.current > 1) {
             selectionRotation.current = 0;
-            // @ts-ignore
-            setSelectedState(selectionOptions[0]);
+            setSelected(selectionOptions[0]);
         } else {
             selectionRotation.current++;
-            // @ts-ignore
-            setSelectedState(selectionOptions[selectionRotation.current])
+            setSelected(selectionOptions[selectionRotation.current])
         }
     } 
-
-    function setSelectedState(value: DrawerOptions) {
-        setSelected(value);
-        selectionRotation.current = selectionOptions.indexOf(value);
-    }
 
     return (
         <div
         className="flex flex-col gap-5 items-center"
         >
             <Drawer
-            setSelectedValue={setSelectedState}
+            drawerButtonSize={drawerButtonSize}
+            setSelectedValue={setSelected}
             />
 
             { (selected === "Overview") && overview }
@@ -62,8 +56,7 @@ const Menu: FunctionComponent<MenuProps> = ({ overview, recentActivity, streaksA
                 />
             </button>
         </div>
-        
     );
 }
  
-export default Menu;
+export default Section;

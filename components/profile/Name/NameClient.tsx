@@ -25,7 +25,9 @@ const NameClient = ({ name }: NameClientProps) => {
     return (
         <h1
         ref={nameRef}
-        className="text-2xl font-bold w-full h-full whitespace-nowrap overflow-clip relative"
+        className="text-2xl font-bold w-full h-full
+        whitespace-nowrap overflow-clip relative
+        md:text-4xl"
         >
             <div
             ref={fadeRef}

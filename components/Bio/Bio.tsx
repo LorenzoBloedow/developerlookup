@@ -17,7 +17,7 @@ const Bio = async ({ username }: BioProps) => {
             {
                 (result.success) &&
                 <p
-                className="text-sm text-slate-500 line-clamp-2 w-full h-full"
+                className="text-sm md:text-base text-slate-500 line-clamp-2 w-full h-full"
                 >
                     {result.data.bio ? result.data.bio : "I have no words..."}
                 </p>

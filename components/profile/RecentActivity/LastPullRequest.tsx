@@ -17,10 +17,10 @@ async function LastPullRequest({ username }: { username: string }) {
                 <div
                 className="flex flex-col gap-1 items-center justify-center leading-snug"
                 >
-                    <VscGitPullRequest className="w-12 h-12 text-slate-500 mb-3" />
+                    <VscGitPullRequest className="w-12 h-12 md:w-16 md:h-16 text-slate-500 mb-3" />
                     <div>
-                        <p className="text-sm">Last pull request: </p>
-                        <p className="text-xs">
+                        <p className="text-sm md:text-base">Last pull request: </p>
+                        <p className="text-xs md:text-sm">
                             {
                                 result.data.lastPullRequest?.date ?
                                 formatDate(result.data.lastPullRequest.date, "short")
