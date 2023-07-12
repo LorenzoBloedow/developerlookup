@@ -1,5 +1,7 @@
 import { ReactNode } from "react";
 import Subheading from "../../Subheading";
+import { RiQuestionFill } from "react-icons/ri";
+import Tooltip from "../../../Tooltip";
 
 interface LongestStreakProps {
     startDate: number;
@@ -16,8 +18,24 @@ const LongestStreak = async ({ startDate, endDate, title, icon }: LongestStreakP
         className="flex flex-col items-center gap-4 md:text-lg"
         >
             <Subheading>
-                {title}
+                <span
+                className="relative"
+                >
+                    {title}
+                    <span className="hidden md:inline-block absolute ml-1">
+                        <Tooltip
+                        tip="Calculated by checking the calendar days of every git push"
+                        >
+                            <RiQuestionFill
+                            className="w-5 h-5 text-slate-700"
+                            />
+                        </Tooltip>
+                    </span>
+                </span>
             </Subheading>
+
+
+
 
             <div
             className="flex flex-col items-center gap-2"
