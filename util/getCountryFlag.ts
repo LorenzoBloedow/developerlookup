@@ -1,7 +1,12 @@
 import { AddressType, Client, Language, PlaceInputType } from "@googlemaps/google-maps-services-js";
 import Flag from "country-flag-icons/react/3x2";
+import isProd from "./isProd";
 
 export default async function getCountryFlag(location: string) {
+    if (!isProd && process.env.USE_MOCK_DATA === "true") {
+        return Flag.US;
+    }
+
     if (!location) {
         return false;
     }
