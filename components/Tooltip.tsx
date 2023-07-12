@@ -35,7 +35,7 @@ const Tooltip: FunctionComponent<TooltipProps> = ({ children, tip }) => {
                 <p
                 className="rounded-lg bg-slate-200 p-2
                 text-slate-700 min-h-[16px] text-[0.6rem]
-                w-full"
+                w-full leading-snug"
                 >
                     {tip}
                 </p>
