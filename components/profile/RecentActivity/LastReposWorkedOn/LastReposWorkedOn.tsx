@@ -29,26 +29,21 @@ async function LastReposWorkedOn({ username }: { username: string }) {
             />
             {
                 (result.success) &&
-                <div className="flex flex-col items-center gap-5">
-                    <Subheading>
-                        Most Recent Repository Activity
-                    </Subheading>
-                    <div className="flex flex-col items-center gap-5">
-                        {
-                        recentRepos.length > 0 ?
-                        recentRepos
-                        :
-                            <div className="flex flex-col items-center justify-center">
-                                <GiWindHole className="w-12 h-12 md:w-16 md:h-16 text-[#221335]" />
-                                <p
-                                className="text-sm md:text-base"
-                                >
-                                    We looked everywhere but couldn't find anything!
-                                </p>
-                            </div>
-                        }
-                    </div>
-                </div>
+                <>
+                    {
+                    recentRepos.length > 0 ?
+                    recentRepos
+                    :
+                        <div className="flex flex-col items-center justify-center">
+                            <GiWindHole className="w-12 h-12 md:w-16 md:h-16 text-[#221335]" />
+                            <p
+                            className="text-sm md:text-base"
+                            >
+                                We looked everywhere but couldn't find anything!
+                            </p>
+                        </div>
+                    }
+                </>
             }
         </>
     );
