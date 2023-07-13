@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "npm run build && git pull && git push",
+    "deploy": "vercel pull && vercel build --prod && vercel deploy --prod",
     "svgo": "svgo -f static/svg/input -o static/svg/output",
     "ts:check": "tsc --noEmit"
   },
