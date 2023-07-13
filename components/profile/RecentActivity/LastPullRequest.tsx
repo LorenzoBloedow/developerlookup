@@ -1,7 +1,7 @@
 import { VscGitPullRequest } from "react-icons/vsc";
 import formatDate from "../../../util/formatDate";
 import getRecentData from "../../../util/getRecentData";
-import RepoLink from "../LastCommit/RepoLink";
+import RepoLink from "../RepoLink";
 import BypassErrorSerialization from "../../BypassErrorSerialization";
 
 async function LastPullRequest({ username }: { username: string }) {

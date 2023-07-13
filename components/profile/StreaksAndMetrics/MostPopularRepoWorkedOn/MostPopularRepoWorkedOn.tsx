@@ -2,7 +2,7 @@ import BypassErrorSerialization from "../../../BypassErrorSerialization";
 import getDateSensitiveData from "../../../../util/getDateSensitiveData";
 import { FaSplotch } from "react-icons/fa";
 import getMostPopularRepo from "../../../../util/getMostPopularRepo";
-import RepoLink from "../../LastCommit/RepoLink";
+import RepoLink from "../../RepoLink";
     
 interface MostPopularRepoWorkedOnProps {
     username: string;

@@ -1,7 +1,7 @@
 import { IoMdGitCommit } from "react-icons/io";
 import formatDate from "../../../../util/formatDate";
 import getRecentData from "../../../../util/getRecentData";
-import RepoLink from "./RepoLink";
+import RepoLink from "../../RepoLink";
 import BypassErrorSerialization from "../../../BypassErrorSerialization";
 
 async function LastCommit({ username }: { username: string }) {

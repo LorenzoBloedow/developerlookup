@@ -2,7 +2,7 @@ import getMostPopularRepo from "../../../../../util/getMostPopularRepo";
 import { BiGitRepoForked } from "react-icons/bi";
 import { AiFillStar } from "react-icons/ai";
 import { IoMdEye } from "react-icons/io";
-import RepoLink from "../../../LastCommit/RepoLink";
+import RepoLink from "../../../RepoLink";
 import ItemCategory from "../ItemCategory";
 import ListItem from "../ListItem";
 import Line from "../Line";
