@@ -1,8 +1,10 @@
 "use client";
-import { ApiRequest } from "../types";
 
 interface BypassErrorSerializationProps {
-    result: ApiRequest<unknown>;
+    result: {
+        success: boolean;
+        [key: string]: any;
+    };
 }
 
 function BypassErrorSerialization({ result }: BypassErrorSerializationProps) {
