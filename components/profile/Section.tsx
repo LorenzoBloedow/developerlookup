@@ -30,7 +30,7 @@ const Section: FunctionComponent<SectionProps> = ({ overview, recentActivity, st
 
     return (
         <div
-        className="flex flex-col gap-5 items-center"
+        className="flex flex-col gap-5 items-center lg:w-72 lg:max-h-full lg:flex-none"
         >
             <Drawer
             drawerButtonSize={drawerButtonSize}
@@ -48,7 +48,7 @@ const Section: FunctionComponent<SectionProps> = ({ overview, recentActivity, st
             { (selected === "SurroundingActivity") && surroundingActivity } */}
 
             <button
-            className="p-2.5 border-2 rounded-full sticky -bottom-4 bg-neu-mid shadow-black shadow-lg"
+            className="p-2.5 border-[1px] rounded-full sticky -bottom-4 bg-neu-mid shadow-black shadow-lg"
             onPointerUp={rotateSelectedState}
             >
                 <IoIosArrowDown

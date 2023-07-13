@@ -24,13 +24,12 @@ const Profile = ({ username }: ProfileProps) => {
     // most of the components to be server-rendered
     const drawerButtonSize = "w-12 h-12 md:w-14 md:h-14";
 
-
     return (
         // This first div needs to exist with padding so the absolutely positioned elements
         // inside the child div don't ignore the padding of the parent div
         <div
         className="bg-slate-200 shadow-xl shadow-black rounded-xl
-        w-72 h-[35rem] bg-neu-mid p-6 overflow-x-hidden overflow-y-scroll
+        w-72 h-[35rem] bg-neu-mid p-6 overflow-x-hidden overflow-y-auto
         sm:w-80 sm:h-[37rem] md:w-96 md:h-[40rem] lg:w-[50rem] lg:h-[30rem]
         xl:w-[60rem] xl:h-[40rem] md:p-10"
         style={{
@@ -38,75 +37,82 @@ const Profile = ({ username }: ProfileProps) => {
         }}
         >
             <div
-            className="relative flex flex-col items-center text-center gap-5 w-full h-full"
+            className="relative flex flex-col items-center
+            text-center gap-5 w-full lg:flex-row"
             >
                 <div
-                className="w-full"
+                className="flex flex-col items-center text-center
+                gap-5 w-full lg:sticky lg:top-0 lg:left-0
+                lg:self-start lg:h-[30rem]"
                 >
                     <div
-                    className="flex justify-center items-center w-full"
+                    className="w-full"
                     >
                         <div
-                        className="w-10 h-5 md:w-14 md:h-7 mr-auto"
+                        className="flex justify-center items-center w-full"
                         >
-                            <Suspense fallback={<CountryFlagLoading />}>
-                                {/* @ts-expect-error Server Component */}
-                                <CountryFlag username={username} />
-                            </Suspense>
+                            <div
+                            className="w-10 h-5 md:w-14 md:h-7 mr-auto rounded-full overflow-hidden"
+                            >
+                                <Suspense fallback={<CountryFlagLoading />}>
+                                    {/* @ts-expect-error Server Component */}
+                                    <CountryFlag username={username} />
+                                </Suspense>
+                            </div>
+                            <p
+                            className="text-[0.5rem] md:text-[0.55rem] text-slate-500
+                            w-32 md:w-48 mr-auto -ml-1 md:-ml-2"
+                            >
+                                All Data Shown Is Based On The Last 30 Days Of Public Activity
+                            </p>
+                            <div
+                            className={drawerButtonSize}
+                            />
                         </div>
-                        <p
-                        className="text-[0.5rem] md:text-[0.55rem] text-slate-500 w-32 md:w-48 mr-auto
-                        -ml-1 md:-ml-2"
-                        >
-                            All Data Shown Is Based On The Last 30 Days Of Public Activity
-                        </p>
-                        <div
-                        className={drawerButtonSize}
+                        {/* @ts-expect-error Server Component */}
+                        <Achievements
+                        username={username}
                         />
                     </div>
-
-                    {/* @ts-expect-error Server Component */}
-                    <Achievements
-                    username={username}
-                    />
-                </div>
-
-                <div
-                className="w-40 h-40 md:w-56 md:h-56 flex-shrink-0"
-                >
-                    <Suspense fallback={<ProfilePictureLoading />}>
-                        {/* @ts-expect-error Server Component */}
-                        <ProfilePicture username={username} />
-                    </Suspense>
-                </div>
-                <div
-                className="flex flex-col items-center gap-1"
-                >
                     <div
-                    className="w-52 h-7 md:w-72 md:h-10"
+                    className="w-40 h-40 md:w-56 md:h-56 flex-shrink-0"
                     >
-                        <Suspense fallback={<NameLoading />}>
+                        <Suspense fallback={<ProfilePictureLoading />}>
                             {/* @ts-expect-error Server Component */}
-                            <Name username={username} />
+                            <ProfilePicture username={username} />
                         </Suspense>
                     </div>
                     <div
-                    className="w-48 h-10 md:w-64 md:h-14"
+                    className="flex flex-col items-center gap-1"
                     >
-                        <Suspense fallback={<BioLoading />}>
-                            {/* @ts-expect-error Server Component */}
-                            <Bio username={username} />
-                        </Suspense>
+                        <div
+                        className="w-52 h-7 md:w-72 md:h-10"
+                        >
+                            <Suspense fallback={<NameLoading />}>
+                                {/* @ts-expect-error Server Component */}
+                                <Name username={username} />
+                            </Suspense>
+                        </div>
+                        <div
+                        className="w-48 h-10 md:w-64 md:h-14"
+                        >
+                            <Suspense fallback={<BioLoading />}>
+                                {/* @ts-expect-error Server Component */}
+                                <Bio username={username} />
+                            </Suspense>
+                        </div>
                     </div>
+                    <hr className="border-[1px] border-slate-300 w-full lg:hidden" />
                 </div>
-
-                <hr className="border-[1px] border-slate-300 w-full" />
-
                 <Section
                 drawerButtonSize={drawerButtonSize}
                 overview={<Overview username={username} />}
                 recentActivity={<RecentActivity username={username} />}
                 streaksAndMetrics={<StreaksAndMetrics username={username} />}
+                />
+
+                <div
+                className={"hidden lg:block mb-auto flex-shrink-0 " + drawerButtonSize}
                 />
             </div>
         </div>

@@ -20,7 +20,7 @@ function StreaksAndMetrics({ username }: StreaksAndMetrics) {
                 <MostPopularRepo username={username} />
             </Suspense>
 
-            <hr className="border-2 border-slate-300" />
+            <hr className="border-[1px] border-slate-300" />
 
             <Suspense>
                 <MostUsedProgrammingLanguages username={username} />

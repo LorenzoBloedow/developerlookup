@@ -43,14 +43,14 @@ const RecentActivity: FunctionComponent<RecentActivityProps> = ({ username }) =>
                 <LastReposWorkedOn username={username} />
             </Suspense>
 
-            <hr className="border-2 border-slate-300" />
+            <hr className="border-[1px] border-slate-300" />
 
             <Suspense>
                 {/** @ts-expect-error */}
                 <LastPullRequest username={username} />
             </Suspense>
 
-            <hr className="border-2 border-slate-300" />
+            <hr className="border-[1px] border-slate-300" />
 
             <Suspense>
                 {/** @ts-expect-error */}
