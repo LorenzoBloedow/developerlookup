@@ -1,10 +1,7 @@
 import "server-only";
 import { headers } from "next/headers";
 
-export default function formatDate(date: Date | string, type: "long" | "short" = "long") {
-
-    const processedDate = ( typeof date === "string" ) ? new Date(date) : date;
-
+export default function formatDate(date: string, type: "long" | "short" = "long") {
     let dateFormat;
     const headersInstance = headers();
     const locale = headersInstance.get("Accept-Language");
@@ -23,5 +20,5 @@ export default function formatDate(date: Date | string, type: "long" | "short" =
         });
     }
 
-    return dateFormat.format(processedDate);
+    return dateFormat.format(new Date(date));
 }
