@@ -7,7 +7,7 @@ import Name from "./Name/Name";
 import NameLoading from "./Name/NameLoading";
 import ProfilePicture from "./ProfilePicture/ProfilePicture";
 import ProfilePictureLoading from "./ProfilePicture/ProfilePictureLoading";
-import Overview from "./Overview";
+import Overview from "../Overview/Overview";
 import Section from "./Section";
 import RecentActivity from "./RecentActivity/RecentActivity";
 import StreaksAndMetrics from "./StreaksAndMetrics/StreaksAndMetrics";

@@ -4,7 +4,7 @@ import JoinDate from "./JoinDate";
 import Twitter from "./Twitter/Twitter";
 import Gist from "./Gist";
 import UserType from "./UserType";
-import Subheading from "./Subheading";
+import Subheading from "../profile/Subheading";
 
 interface OverviewProps {
     username: string
@@ -18,8 +18,8 @@ const Overview: FunctionComponent<OverviewProps> = ({ username }) => {
             <Subheading>
                 Overview
             </Subheading>
+            
             <div className="flex gap-4 md:gap-10">
-                
                 <Suspense>
                     {/** @ts-expect-error */}
                     <Followers username={username} />
