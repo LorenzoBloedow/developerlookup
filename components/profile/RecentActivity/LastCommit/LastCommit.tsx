@@ -14,9 +14,7 @@ async function LastCommit({ username }: { username: string }) {
             />
             {
                 (result.success) &&
-                <div
-                className="flex flex-col gap-1 items-center justify-center leading-snug"
-                >
+                <>
                     <IoMdGitCommit className="w-12 h-12 text-slate-500" />
                     <div>
                         <p className="text-sm md:text-base">Last commit: </p>
@@ -36,7 +34,7 @@ async function LastCommit({ username }: { username: string }) {
                         repoUrl={result.data.lastCommit.url}
                         />
                     }
-                </div>
+                </>
             }
         </>
     );
