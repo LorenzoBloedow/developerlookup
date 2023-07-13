@@ -4,6 +4,8 @@ import Footer from "../components/footer/Footer";
 import Navbar from "../components/navbar/Navbar";
 import { Prompt } from "next/font/google";
 import { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
+import isProd from "../util/isProd";
 
 const prompt = Prompt({
     subsets: ["latin"],
@@ -28,6 +30,10 @@ const RootLayout: FunctionComponent<RootLayoutProps> = ({ children }) => {
                 <Navbar />
                     {children}
                 <Footer />
+                
+                <Analytics
+                mode={isProd ? "production" : "development"}
+                />
             </body>
         </html>
     );
