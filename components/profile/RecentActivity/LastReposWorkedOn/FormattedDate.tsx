@@ -1,4 +1,4 @@
-import formatDate from "../../../util/formatDate";
+import formatDate from "../../../../util/formatDate";
 
 function FormattedDate({ date }: { date: string }) {
     const formattedDate = formatDate(date);

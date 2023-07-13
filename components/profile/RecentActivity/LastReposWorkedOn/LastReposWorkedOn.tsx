@@ -1,6 +1,6 @@
-import getRecentData from "../../../util/getRecentData";
-import BypassErrorSerialization from "../../BypassErrorSerialization";
-import Subheading from "../Subheading";
+import getRecentData from "../../../../util/getRecentData";
+import BypassErrorSerialization from "../../../BypassErrorSerialization";
+import Subheading from "../../Subheading";
 import FormattedDate from "./FormattedDate";
 import Repo from "./Repo";
 import { GiWindHole } from "react-icons/gi";

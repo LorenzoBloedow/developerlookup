@@ -1,7 +1,7 @@
 "use client";
 
 import { RiGitRepositoryFill } from "react-icons/ri";
-import getEventDescription from "../../../util/getEventDescription";
+import getEventDescription from "../../../../util/getEventDescription";
 
 interface RepoProps {
     repoName: string;
