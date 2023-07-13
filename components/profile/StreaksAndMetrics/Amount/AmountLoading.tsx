@@ -1,4 +1,4 @@
-import ContentLoaderWrapper from "../../../ContentLoaderWrapper";
+import ContentLoaderWrapper from "../../ContentLoaderWrapper";
 
 function AmountLoading() {
     return (

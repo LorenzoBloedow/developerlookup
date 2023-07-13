@@ -1,6 +1,6 @@
 import { IoMdGitCommit } from "react-icons/io";
-import getDateSensitiveData from "../../../../../util/getDateSensitiveData";
-import BypassErrorSerialization from "../../../../BypassErrorSerialization";
+import getDateSensitiveData from "../../../../util/getDateSensitiveData";
+import BypassErrorSerialization from "../../../BypassErrorSerialization";
 import Amount from "./Amount";
 
 interface CommitAmountProps {

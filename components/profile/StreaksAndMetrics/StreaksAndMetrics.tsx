@@ -5,12 +5,12 @@ import LongestCommitStreak from "./LongestStreak/LongestCommitStreak";
 import LongestBreakStreak from "./LongestStreak/LongestBreakStreak";
 import MostCommitsDay from "./MostCommitsDay/MostCommitsDay";
 import MostActivity from "./MostActivity/MostActivity";
-import CommitAmount from "./LongestStreak/Amount/CommitAmount";
-import PullRequestAmount from "./LongestStreak/Amount/PullRequestAmount";
+import CommitAmount from "./Amount/CommitAmount";
+import PullRequestAmount from "./Amount/PullRequestAmount";
 import LongestStreakLoading from "./LongestStreak/LongestStreakLoading";
 import MostCommitsDayLoading from "./MostCommitsDay/MostCommitsDayLoading";
 import MostActivityLoading from "./MostActivity/MostActivityLoading";
-import AmountLoading from "./LongestStreak/Amount/AmountLoading";
+import AmountLoading from "./Amount/AmountLoading";
 
 interface StreaksAndMetrics {
     username: string

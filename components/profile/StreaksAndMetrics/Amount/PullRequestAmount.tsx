@@ -1,5 +1,5 @@
-import getDateSensitiveData from "../../../../../util/getDateSensitiveData";
-import BypassErrorSerialization from "../../../../BypassErrorSerialization";
+import getDateSensitiveData from "../../../../util/getDateSensitiveData";
+import BypassErrorSerialization from "../../../BypassErrorSerialization";
 import Amount from "./Amount";
 import { VscGitPullRequest } from "react-icons/vsc";
 
