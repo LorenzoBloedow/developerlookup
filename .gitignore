@@ -25,9 +25,7 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-.env.local
 .env.development
-.env.production
 
 middleware.ts
 
