@@ -16,10 +16,7 @@ const options: LooseObject = {
     },
     request: {
         retries: 3
-    },
-    doNotRetry: [
-        403
-    ]
+    }
 }
 
 let octokit = new MyOctokit(options);
