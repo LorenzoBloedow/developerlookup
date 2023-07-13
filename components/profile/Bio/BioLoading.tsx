@@ -1,4 +1,4 @@
-import ContentLoaderWrapper from "../profile/ContentLoaderWrapper";
+import ContentLoaderWrapper from "../ContentLoaderWrapper";
  
 const BioLoading = () => {
     return (

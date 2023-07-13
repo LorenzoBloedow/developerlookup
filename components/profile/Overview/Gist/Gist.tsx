@@ -1,6 +1,6 @@
 import { TiCodeOutline } from "react-icons/ti";
-import getBasicUserData from "../../../util/getBasicUserData";
-import BypassErrorSerialization from "../../BypassErrorSerialization";
+import getBasicUserData from "../../../../util/getBasicUserData";
+import BypassErrorSerialization from "../../../BypassErrorSerialization";
 
 async function Gist({ username }: { username: string }) {
     const result = await getBasicUserData(username);

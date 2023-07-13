@@ -1,6 +1,6 @@
 import { FaUserAlt } from "react-icons/fa";
-import getBasicUserData from "../../../util/getBasicUserData";
-import BypassErrorSerialization from "../../BypassErrorSerialization";
+import getBasicUserData from "../../../../util/getBasicUserData";
+import BypassErrorSerialization from "../../../BypassErrorSerialization";
 
 async function UserType({ username }: { username: string }) {
     const result = await getBasicUserData(username)

@@ -4,7 +4,7 @@ import JoinDate from "./JoinDate/JoinDate";
 import Twitter from "./Twitter/Twitter";
 import Gist from "./Gist/Gist";
 import UserType from "./UserType/UserType";
-import Subheading from "../profile/Subheading";
+import Subheading from "../Subheading";
 import FollowersLoading from "./Followers/FollowersLoading";
 import JoinDateLoading from "./JoinDate/JoinDateLoading";
 import TwitterLoading from "./Twitter/TwitterLoading";

@@ -1,7 +1,7 @@
 import { MdPeople } from "react-icons/md";
-import getBasicUserData from "../../../util/getBasicUserData";
-import formatNumber from "../../../util/formatNumber";
-import BypassErrorSerialization from "../../BypassErrorSerialization";
+import getBasicUserData from "../../../../util/getBasicUserData";
+import formatNumber from "../../../../util/formatNumber";
+import BypassErrorSerialization from "../../../BypassErrorSerialization";
 
 async function Followers({ username }: { username: string }) {
     const result = await getBasicUserData(username);

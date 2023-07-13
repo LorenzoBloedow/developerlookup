@@ -1,13 +1,13 @@
 import { Suspense } from "react";
-import Bio from "../Bio/Bio";
-import BioLoading from "../Bio/BioLoading";
+import Bio from "./Bio/Bio";
+import BioLoading from "./Bio/BioLoading";
 import CountryFlag from "./CountryFlag/CountryFlag";
 import CountryFlagLoading from "./CountryFlag/CountryFlagLoading";
 import Name from "./Name/Name";
 import NameLoading from "./Name/NameLoading";
 import ProfilePicture from "./ProfilePicture/ProfilePicture";
 import ProfilePictureLoading from "./ProfilePicture/ProfilePictureLoading";
-import Overview from "../Overview/Overview";
+import Overview from "./Overview/Overview";
 import Section from "./Section";
 import RecentActivity from "./RecentActivity/RecentActivity";
 import StreaksAndMetrics from "./StreaksAndMetrics/StreaksAndMetrics";

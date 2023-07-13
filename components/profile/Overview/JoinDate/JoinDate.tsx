@@ -1,7 +1,7 @@
 import { MdOutlinePermContactCalendar } from "react-icons/md";
-import getBasicUserData from "../../../util/getBasicUserData";
-import formatDate from "../../../util/formatDate";
-import BypassErrorSerialization from "../../BypassErrorSerialization";
+import getBasicUserData from "../../../../util/getBasicUserData";
+import formatDate from "../../../../util/formatDate";
+import BypassErrorSerialization from "../../../BypassErrorSerialization";
 
 async function JoinDate({ username }: { username: string }) {
     const result = await getBasicUserData(username);

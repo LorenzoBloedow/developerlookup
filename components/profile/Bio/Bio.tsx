@@ -1,5 +1,5 @@
-import getBasicUserData from "../../util/getBasicUserData";
-import BypassErrorSerialization from "../BypassErrorSerialization";
+import getBasicUserData from "../../../util/getBasicUserData";
+import BypassErrorSerialization from "../../BypassErrorSerialization";
 
 interface BioProps {
     username: string

@@ -1,7 +1,7 @@
 import Link from "next/link";
-import getBasicUserData from "../../../util/getBasicUserData";
+import getBasicUserData from "../../../../util/getBasicUserData";
 import TwitterButton from "./TwitterButton";
-import BypassErrorSerialization from "../../BypassErrorSerialization";
+import BypassErrorSerialization from "../../../BypassErrorSerialization";
 
 async function Twitter({ username }: { username: string }) {
     const result = await getBasicUserData(username);
