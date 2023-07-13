@@ -37,3 +37,16 @@ html {
 .neu-button:active {
     box-shadow: inset 3px 3px 5px var(--neu-dark) !important;
 }
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #b1b1b1;
+}
+*::-webkit-scrollbar {
+    width: 2px;
+    background-color: transparent;
+}
+*::-webkit-scrollbar-thumb {
+    background-color: #b1b1b1;
+    border-radius: 10px;
+}
