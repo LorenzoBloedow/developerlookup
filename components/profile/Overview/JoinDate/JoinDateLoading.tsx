@@ -1,8 +1,8 @@
-import ContentLoader from "react-content-loader";
+import ContentLoaderWrapper from "../../ContentLoaderWrapper";
 
 function JoinDateLoading() {
     return (
-        <ContentLoader
+        <ContentLoaderWrapper
         className="w-full h-full"
         >
             <rect
@@ -10,7 +10,7 @@ function JoinDateLoading() {
             height="100%"
             rx={8}
             />
-        </ContentLoader>
+        </ContentLoaderWrapper>
     );
 }
 

@@ -1,8 +1,8 @@
-import ContentLoader from "react-content-loader";
+import ContentLoaderWrapper from "../../ContentLoaderWrapper";
 
 function TwitterLoading() {
     return (
-        <ContentLoader
+        <ContentLoaderWrapper
         className="h-48 py-8"
         >
             <rect
@@ -10,7 +10,7 @@ function TwitterLoading() {
             height="100%"
             rx={8}
             />
-        </ContentLoader>
+        </ContentLoaderWrapper>
     );
 }
 

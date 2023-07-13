@@ -1,14 +1,14 @@
-import ContentLoader from "react-content-loader";
+import ContentLoaderWrapper from "../../ContentLoaderWrapper";
 
 function UserTypeLoading() {
     return (
-        <ContentLoader>
+        <ContentLoaderWrapper>
            <rect
             width="100%"
             height="100%"
             rx={8}
             />
-        </ContentLoader>
+        </ContentLoaderWrapper>
     );
 }
 

@@ -1,8 +1,8 @@
-import ContentLoader from "react-content-loader";
+import ContentLoaderWrapper from "../../ContentLoaderWrapper";
 
 function FollowersLoading() {
     return (
-        <ContentLoader
+        <ContentLoaderWrapper
         className="w-full h-full"
         >
             <rect
@@ -10,7 +10,7 @@ function FollowersLoading() {
             height="100%"
             rx={8}
             />
-        </ContentLoader>
+        </ContentLoaderWrapper>
     );
 }
 
