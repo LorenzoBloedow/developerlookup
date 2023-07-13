@@ -47,7 +47,7 @@ const Profile = ({ username }: ProfileProps) => {
                     <div
                     className="flex flex-col items-center text-center
                     gap-5 w-full lg:sticky lg:top-0 lg:left-0
-                    lg:self-start lg:h-[30rem]"
+                    lg:self-start lg:h-[30rem] flex-grow-0"
                     >
                         <div
                         className="w-full"

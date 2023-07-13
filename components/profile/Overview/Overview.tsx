@@ -18,7 +18,7 @@ interface OverviewProps {
 const Overview: FunctionComponent<OverviewProps> = ({ username }) => {
     return (
         <div
-        className="flex flex-col justify-center md:gap-2"
+        className="flex flex-col justify-center md:gap-2 w-full"
         >
             <Subheading>
                 Overview
