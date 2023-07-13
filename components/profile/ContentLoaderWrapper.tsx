@@ -14,7 +14,7 @@ const ContentLoaderWrapper: FunctionComponent<ContentLoaderWrapperProps> = ({ ch
     return (
         <ContentLoader
         speed={speed}
-        className={className || "w-full h-full"}
+        className={className || "w-full h-full max-w-full"}
         backgroundColor="transparent"
         foregroundColor={color || "#94a3b8"}
         viewBox={viewBox}
