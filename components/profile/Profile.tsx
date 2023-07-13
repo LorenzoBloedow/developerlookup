@@ -73,10 +73,12 @@ const Profile = ({ username }: ProfileProps) => {
                                 className={drawerButtonSize}
                                 />
                             </div>
-                            {/* @ts-expect-error Server Component */}
-                            <Achievements
-                            username={username}
-                            />
+                            <Suspense>
+                                {/* @ts-expect-error Server Component */}
+                                <Achievements
+                                username={username}
+                                />
+                            </Suspense>
                         </div>
                         <div
                         className="w-40 h-40 md:w-56 md:h-56 flex-shrink-0"
