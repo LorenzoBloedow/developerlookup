@@ -15,7 +15,7 @@ const LongestStreak = async ({ startDate, endDate, title, icon }: LongestStreakP
 
     return (
         <div
-        className="flex flex-col items-center gap-4 md:text-lg"
+        className="flex flex-col items-center gap-4 md:text-lg w-full h-full"
         >
             <Subheading>
                 <span
@@ -33,9 +33,6 @@ const LongestStreak = async ({ startDate, endDate, title, icon }: LongestStreakP
                     </span>
                 </span>
             </Subheading>
-
-
-
 
             <div
             className="flex flex-col items-center gap-2"
