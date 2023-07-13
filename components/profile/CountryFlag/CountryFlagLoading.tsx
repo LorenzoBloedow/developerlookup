@@ -1,24 +1,23 @@
-import { FunctionComponent } from "react";
-import ContentLoader from "react-content-loader";
-
-interface CountryFlagLoadingProps {
-    
-}
+import ContentLoaderWrapper from "../ContentLoaderWrapper";
  
-const CountryFlagLoading: FunctionComponent<CountryFlagLoadingProps> = () => {
+const CountryFlagLoading = () => {
     return (
-        <ContentLoader
-        speed={1}
+        <ContentLoaderWrapper
         className="w-full h-full"
-        backgroundColor="transparent"
-        foregroundColor="#94a3b8"
         >
             <rect
+            className="md:hidden"
             width="100%"
-            rx="7"
             height="100%"
-            /> 
-        </ContentLoader>
+            rx={2}
+            />
+            <rect
+            className="md:block"
+            width="100%"
+            height="100%"
+            rx={5}
+            />
+        </ContentLoaderWrapper>
     );
 }
  

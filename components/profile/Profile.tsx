@@ -56,7 +56,7 @@ const Profile = ({ username }: ProfileProps) => {
                             className="flex justify-center items-center w-full"
                             >
                                 <div
-                                className="w-10 h-5 md:w-14 md:h-7 mr-auto rounded-full overflow-hidden"
+                                className="w-6 h-4 md:w-12 md:h-8 mr-auto"
                                 >
                                     <Suspense fallback={<CountryFlagLoading />}>
                                         {/* @ts-expect-error Server Component */}

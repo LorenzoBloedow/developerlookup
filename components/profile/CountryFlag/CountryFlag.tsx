@@ -23,10 +23,14 @@ async function CountryFlag({ username }: CountryFlagProps) {
             {
                 (result.success) &&
                 (Flag) ?
-                <Flag
-                aria-label="The user's country flag."
-                className="w-full h-full"
-                />
+                <div
+                className="rounded-sm md:rounded-[5px] w-full h-full overflow-hidden"
+                >
+                    <Flag
+                    aria-label="The user's country flag."
+                    className="w-full h-full"
+                    />
+                </div>
                 :
                 <GitHubSquare username={username} />
             }
