@@ -41,6 +41,16 @@ const UsernameInput = forwardRef<HTMLInputElement, UsernameInputProps>(function 
             className="relative h-10 w-full xl:h-16 flex flex-col gap-2"
             >
                 <input
+                onKeyUp={e => {
+                    if (e.key === "Enter") {
+                        gsap
+                        .to(borderRef.current, {
+                            strokeDashoffset: borderDashAndOffset,
+                            duration: 0.5,
+                            ease: "power3.out"
+                        });
+                    }
+                }}
                 ref={ref}
                 onInput={e => changeUsername(e.currentTarget.value)}
                 onFocus={() => {
