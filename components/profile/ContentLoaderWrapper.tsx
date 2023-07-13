@@ -6,10 +6,14 @@ interface ContentLoaderWrapperProps {
     className?: string;
     speed?: number;
     viewBox?: string;
+    preserveAspectRatio?: string;
     color?: string
 }
  
-const ContentLoaderWrapper: FunctionComponent<ContentLoaderWrapperProps> = ({ children, className = "", speed = 1, viewBox, color }) => {
+const ContentLoaderWrapper: FunctionComponent<ContentLoaderWrapperProps> = ({
+    children, className = "", speed = 1,
+    viewBox, preserveAspectRatio, color
+}) => {
     
     return (
         <ContentLoader
@@ -18,6 +22,7 @@ const ContentLoaderWrapper: FunctionComponent<ContentLoaderWrapperProps> = ({ ch
         backgroundColor="transparent"
         foregroundColor={color || "#94a3b8"}
         viewBox={viewBox}
+        preserveAspectRatio={preserveAspectRatio}
         >
             {children}
         </ContentLoader>
