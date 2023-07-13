@@ -161,7 +161,7 @@ export type ApiError<Code extends (ApiErrorCode | unknown)> = {
     }
 }
 
-export type ApiRequest<Data extends LooseObject, ErrorCode extends (ApiErrorCode | unknown)> = Data extends undefined ? ({
+export type ApiRequest<Data extends LooseObject | undefined, ErrorCode extends (ApiErrorCode | unknown)> = Data extends undefined ? ({
     success: true,
 } | ApiError<ErrorCode>) : ({
     success: true,
