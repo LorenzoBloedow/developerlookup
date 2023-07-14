@@ -20,7 +20,7 @@ function getTopProgrammingLanguages(programmingLanguageScore: { name: string, sc
                 <p className="font-bold text-center flex flex-col items-center text-xs md:text-sm">
                     <span className="font-bold text-xl md:text-2xl" style={{ color: colors[i] }}>#{i + 1}</span>
 
-                    <div className="font-normal filter brightness-75 saturate-50 w-20 md:w-24">
+                    <span className="font-normal filter brightness-75 saturate-50 w-20 md:w-24">
                         <span className="font-bold" style={{ color: lang.color }}>
                             {" " + lang.name}
                         </span>
@@ -28,7 +28,7 @@ function getTopProgrammingLanguages(programmingLanguageScore: { name: string, sc
                         <br />
 
                         <span>{lang.score.toFixed(2)}%</span>
-                    </div>
+                    </span>
                 </p>
             </li>
         );
