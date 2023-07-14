@@ -15,7 +15,7 @@
     "@googlemaps/google-maps-services-js": "^3.3.16",
     "@octokit/auth-oauth-app": "^5.0.6",
     "@octokit/plugin-retry": "^4.1.6",
-    "@octokit/rest": "^19.0.13",
+    "@octokit/rest": "^20.0.1",
     "@vercel/analytics": "^0.1.11",
     "client-only": "^0.0.1",
     "cookies-next": "^2.1.2",
