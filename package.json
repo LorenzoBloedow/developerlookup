@@ -21,7 +21,7 @@
     "client-only": "^0.0.1",
     "cookies-next": "^2.1.2",
     "country-flag-icons": "^1.5.5",
-    "detect-programming-language": "^1.0.1",
+    "detect-programming-language": "^1.0.2",
     "github-username-regex": "^1.0.0",
     "gsap": "^3.12.2",
     "is-consecutive-day": "^1.0.0",
